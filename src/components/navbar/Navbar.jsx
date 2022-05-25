@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import React from 'react';
 import './Navbar.css';
 import header_logo from '../../assets/header_logo.png';
 import MenuIcon from '@mui/icons-material/Menu';
