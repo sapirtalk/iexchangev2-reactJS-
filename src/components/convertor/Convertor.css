@@ -69,7 +69,7 @@
 	margin-right: 2px;
 }
 
-.switch:hover {
+.switch i:hover {
 	background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
 	background-color: #dfdfdf;
 }
