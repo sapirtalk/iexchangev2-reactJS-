@@ -1,0 +1,33 @@
+import { React, useState } from 'react';
+import './Navbar.css';
+import header_logo from '../../assets/header_logo.png';
+import MenuIcon from '@mui/icons-material/Menu';
+import Toggle from '../../Hooks/Toggle';
+
+function Navbar() {
+	const [ isNavExpanded, setIsNavExpanded ] = Toggle(false);
+
+	return (
+		<nav className="navigation">
+			<img className="headerLogo" src={header_logo} alt="header_logo" />
+			<button onClick={setIsNavExpanded} className="hamburger">
+				<MenuIcon />
+			</button>
+			<div className={isNavExpanded ? 'navigation-menu expanded' : 'navigation-menu'}>
+				<ul>
+					<li>
+						<a href="/home">Home</a>
+					</li>
+					<li>
+						<a href="/about">About</a>
+					</li>
+					<li>
+						<a href="/contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	);
+}
+
+export default Navbar;
