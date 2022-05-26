@@ -26,8 +26,7 @@ export default function Convertor(props) {
 		var value = e.target.value;
 		if (value !== 0 && getFormVals.exchangeRate !== 0) {
 			var calc = value * getFormVals.exchangeRate;
-			var rounded = calc.toFixed(3);
-			setFormVals.setOutcome(rounded);
+			setFormVals.setOutcome(calc);
 		}
 		setFormVals.setAmount(value);
 	};
@@ -48,8 +47,7 @@ export default function Convertor(props) {
 		() => {
 			async function updateBySwitch() {
 				var calc = getFormVals.amount * getFormVals.exchangeRate;
-				var rounded = calc.toFixed(3);
-				setFormVals.setOutcome(rounded);
+				setFormVals.setOutcome(calc);
 			}
 			updateBySwitch();
 		},
@@ -68,45 +66,49 @@ export default function Convertor(props) {
 				/>
 			</div>
 			<div className="convertor-grid">
-				<div className="from">
-					<CurrencyDrop
-						label="From:"
-						setPrefix={setFormVals.setPrefixFrom}
-						setValue={setFormVals.setFrom}
-						value={getFormVals.from}
-						setApi={setApi}
-					/>
+				<div className="convertor-top-row">
+					<div className="from">
+						<CurrencyDrop
+							label="From:"
+							setPrefix={setFormVals.setPrefixFrom}
+							setValue={setFormVals.setFrom}
+							value={getFormVals.from}
+							setApi={setApi}
+						/>
+					</div>
+					<div className="switch">
+						<i onClick={handleSwitch} className="fa-solid fa-repeat" />
+					</div>
+					<div className="to">
+						<CurrencyDrop
+							label="To:"
+							setValue={setFormVals.setTo}
+							value={getFormVals.to}
+							setApi={setApi}
+							setPrefix={setFormVals.setPrefixTo}
+						/>
+					</div>
 				</div>
-				<div className="switch">
-					<i onClick={handleSwitch} className="fa-solid fa-repeat" />
-				</div>
-				<div className="to">
-					<CurrencyDrop
-						label="To:"
-						setValue={setFormVals.setTo}
-						value={getFormVals.to}
-						setApi={setApi}
-						setPrefix={setFormVals.setPrefixTo}
-					/>
-				</div>
-				<div className="outcome">
-					<p>you will recieve:</p>
-					<h1>
-						{getFormVals.prefixTo}
-						{getFormVals.outcome.toLocaleString(undefined, { maximumFractionDigits: 2 })}
-					</h1>
-				</div>
-				<div className="rateContainer">
-					<p className="rateContainer-label">rate:</p>
-					<p className="rateContainer-output">
-						<span className="rateContainer-outputNum">1</span>
-						{getFormVals.prefixFrom} =
-						<span className="rateContainer-outputNum">{getFormVals.exchangeRate}</span>
-						{getFormVals.prefixTo}
-					</p>
+				<div className="convertor-bot-row">
+					<div className="outcome">
+						<p>you will recieve:</p>
+						<h1 className="outcome-number">
+							{getFormVals.prefixTo}
+							{getFormVals.outcome.toLocaleString(undefined, { maximumFractionDigits: 3 })}
+						</h1>
+					</div>
+					<div className="rateContainer">
+						<p className="rateContainer-label">rate:</p>
+						<p className="rateContainer-output">
+							<span className="rateContainer-outputNum">1</span>
+							{getFormVals.prefixFrom} =
+							<span className="rateContainer-outputNum">{getFormVals.exchangeRate}</span>
+							{getFormVals.prefixTo}
+						</p>
+					</div>
 				</div>
 				<div className="toFormBtn">
-					<button>Continue</button>
+					<button className="continue">Continue</button>
 				</div>
 			</div>
 		</div>

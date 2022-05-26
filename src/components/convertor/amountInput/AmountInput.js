@@ -12,6 +12,9 @@ export default function AmountInput(props) {
 				InputProps={{
 					inputComponent: NumberFormatCustom
 				}}
+				inputProps={{
+					maxLength: 7
+				}}
 				size={props.size}
 				placeholder={props.prefix}
 			/>
