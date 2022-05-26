@@ -108,7 +108,9 @@ export default function Convertor(props) {
 					</div>
 				</div>
 				<div className="toFormBtn">
-					<button className="continue">Continue</button>
+					<button className="continue" onClick={props.handleContinue}>
+						Continue
+					</button>
 				</div>
 			</div>
 		</div>
