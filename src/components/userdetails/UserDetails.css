@@ -1,0 +1,52 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	margin: 10px 10px;
+}
+
+.names {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.names span {
+	padding: 10px 10px;
+}
+
+.email {
+	margin-bottom: 30px;
+	justify-content: center;
+	margin-left: 10px;
+}
+
+.countryDrop {
+	display: flex;
+	margin-bottom: 20px;
+	justify-content: center;
+	margin-left: 7px;
+}
+
+.approval {
+	border: 0.5px solid rgb(182, 181, 181);
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 5rem;
+	border-radius: 6px;
+	padding: 10px 10px;
+}
+
+.approval-headline {
+	font-size: medium;
+	font-weight: 300;
+	margin-left: 10px;
+}
+
+.number {
+	color: blue;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.approval-checkBox {
+	margin: 10px 10px;
+}

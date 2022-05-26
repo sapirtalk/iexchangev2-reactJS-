@@ -26,9 +26,10 @@ export default function Convertor(props) {
 		var value = e.target.value;
 		if (value !== 0 && getFormVals.exchangeRate !== 0) {
 			var calc = value * getFormVals.exchangeRate;
-			setFormVals.setOutcome(calc);
+			var fixed = Number(calc.toFixed(3));
+			setFormVals.setOutcome(fixed);
 		}
-		setFormVals.setAmount(value);
+		setFormVals.setAmount(Number(value));
 	};
 
 	useEffect(
@@ -47,7 +48,8 @@ export default function Convertor(props) {
 		() => {
 			async function updateBySwitch() {
 				var calc = getFormVals.amount * getFormVals.exchangeRate;
-				setFormVals.setOutcome(calc);
+				var fixed = Number(calc.toFixed(3));
+				setFormVals.setOutcome(fixed);
 			}
 			updateBySwitch();
 		},

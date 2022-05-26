@@ -15,13 +15,49 @@ function UserForm() {
 	const [ outcome, setOutcome ] = useState(0);
 	const [ moveForm, setMove ] = Toggle(false);
 	const [ firstName, setFirstName ] = UseInputState('');
+	const [ LastName, setLastName ] = UseInputState('');
+	const [ email, setEmail ] = UseInputState('');
+	const [ emailConfirm, setEmailConfirm ] = UseInputState('');
+	const [ accCountry, setAccCountry ] = useState('US');
+	const [ toCountry, setToCountry ] = useState('Israel');
+	const [ idPic, setIdPic ] = useState(null);
+	const [ selfi, setSelfi ] = useState(null);
 
 	const convertSetVals = { setAmount, setOutcome, setPrefixFrom, setPrefixTo, setTo, setFrom, setExchangeRate };
 	const convertGetVals = { amount, outcome, prefixFrom, prefixTo, to, from, exchangeRate };
+
+	const detailsGetVals = {
+		firstName,
+		LastName,
+		email,
+		emailConfirm,
+		accCountry,
+		toCountry,
+		idPic,
+		selfi,
+		amount,
+		outcome,
+		prefixFrom,
+		prefixTo,
+		to,
+		from,
+		exchangeRate
+	};
+	const detailsSetVals = {
+		setFirstName,
+		setLastName,
+		setEmail,
+		setEmailConfirm,
+		setAccCountry,
+		setToCountry,
+		setIdPic,
+		setSelfi
+	};
+
 	return (
 		<div className="UserForm">
 			{moveForm ? (
-				<UserDetails handleBack={setMove} />
+				<UserDetails handleBack={setMove} getVals={detailsGetVals} setVals={detailsSetVals} />
 			) : (
 				<Convertor setFormVals={convertSetVals} getFormVals={convertGetVals} handleContinue={setMove} />
 			)}
