@@ -4,6 +4,7 @@ import Convertor from '../convertor/Convertor.js';
 import UserDetails from '../userdetails/UserDetails';
 import UseInputState from '../../Hooks/UseInputState';
 import Toggle from '../../Hooks/Toggle';
+import HandleFileInput from '../../Hooks/HandleFileInput';
 
 function UserForm() {
 	const [ amount, setAmount ] = useState(0);
@@ -20,8 +21,8 @@ function UserForm() {
 	const [ emailConfirm, setEmailConfirm ] = UseInputState('');
 	const [ accCountry, setAccCountry ] = useState('US');
 	const [ toCountry, setToCountry ] = useState('Israel');
-	const [ idPic, setIdPic ] = useState(null);
-	const [ selfi, setSelfi ] = useState(null);
+	const [ idPic, setIdPic ] = HandleFileInput(null);
+	const [ selfie, setSelfie ] = HandleFileInput(null);
 
 	const convertSetVals = { setAmount, setOutcome, setPrefixFrom, setPrefixTo, setTo, setFrom, setExchangeRate };
 	const convertGetVals = { amount, outcome, prefixFrom, prefixTo, to, from, exchangeRate };
@@ -34,7 +35,7 @@ function UserForm() {
 		accCountry,
 		toCountry,
 		idPic,
-		selfi,
+		selfie,
 		amount,
 		outcome,
 		prefixFrom,
@@ -51,7 +52,7 @@ function UserForm() {
 		setAccCountry,
 		setToCountry,
 		setIdPic,
-		setSelfi
+		setSelfie
 	};
 
 	return (
@@ -59,7 +60,7 @@ function UserForm() {
 			{moveForm ? (
 				<UserDetails handleBack={setMove} getVals={detailsGetVals} setVals={detailsSetVals} />
 			) : (
-				<Convertor setFormVals={convertSetVals} getFormVals={convertGetVals} handleContinue={setMove} />
+				<Convertor setFormVals={convertSetVals} getFormVals={convertGetVals} continue={setMove} />
 			)}
 		</div>
 	);

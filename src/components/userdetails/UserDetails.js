@@ -36,9 +36,9 @@ export default function UserDetails(props) {
 				<div className="countryDrop">
 					<CountryDrop
 						value={getVals.accCountry}
-						label="Bank Account Address:"
+						label="Where is your bank?:"
 						handleChange={setVals.setAccCountry}
-						helperText="the transaction is via bank"
+						helperText="so you can use your local bank with no extra fee"
 					/>
 					<CountryDrop
 						value={getVals.toCountry}
@@ -46,6 +46,19 @@ export default function UserDetails(props) {
 						handleChange={setVals.setToCountry}
 						helperText="what is your destination"
 					/>
+				</div>
+				<div className="file-uploader">
+					<p>ID/PASSPORT:</p>
+					<input onChange={setVals.setIdPic} type="file" accept="image/pdf" />
+					<p className="description-selfie">*.PDF or .JEPG and 5mb or less</p>
+				</div>
+
+				<div>
+					<p>Self Photo:</p>
+					<input onChange={setVals.setSelfie} type="file" id="capture" accept="image/*" capture />
+					<p className="description-selfie">
+						*Please make sure your face is visible and the picture is taken at a well lit area
+					</p>
 				</div>
 				<h1 className="approval-headline">Please approve the following:</h1>
 				<div className="approval">
@@ -72,9 +85,14 @@ export default function UserDetails(props) {
 				</div>
 				<div className="approval-checkBox">
 					<FormGroup>
+						<FormControlLabel control={<Checkbox />} label="I approve the amounts and the exchange rate." />
+					</FormGroup>
+				</div>
+				<div className="approval-checkBox">
+					<FormGroup>
 						<FormControlLabel
 							control={<Checkbox />}
-							label="I approve the amounts, and the current exchange rate."
+							label="i have read the terms & conditions and agree."
 						/>
 					</FormGroup>
 				</div>

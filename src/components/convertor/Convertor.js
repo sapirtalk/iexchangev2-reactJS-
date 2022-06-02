@@ -10,6 +10,7 @@ export default function Convertor(props) {
 	const getFormVals = props.getFormVals;
 	const setFormVals = props.setFormVals;
 	const [ isApi, setApi ] = Toggle(false);
+	const [ error, setError ] = Toggle(false);
 
 	const handleSwitch = () => {
 		let temp = getFormVals.to;
@@ -20,6 +21,18 @@ export default function Convertor(props) {
 		setFormVals.setTo(getFormVals.from);
 		setFormVals.setFrom(temp);
 		setApi(isApi);
+	};
+
+	const handleContinue = () => {
+		if (getFormVals.amount < 100 && getFormVals.from === 'USD') {
+			if (!error) setError();
+			return;
+		} else if (getFormVals.outcome < 100 && getFormVals.from === 'ILS') {
+			if (!error) setError();
+			return;
+		}
+		if (error) setError();
+		props.continue();
 	};
 
 	const handleAmountChange = (e) => {
@@ -109,8 +122,13 @@ export default function Convertor(props) {
 						</p>
 					</div>
 				</div>
+				{error ? (
+					<p style={{ color: 'red', fontSize: '13px' }}>Sorry! we can only exchange $100 or more</p>
+				) : (
+					<p />
+				)}
 				<div className="toFormBtn">
-					<button className="continue" onClick={props.handleContinue}>
+					<button className="continue" onClick={handleContinue}>
 						Continue
 					</button>
 				</div>
