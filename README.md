@@ -6,6 +6,6 @@ Updates:
            *only the convertor component is fully working.
            *added file inputs to UserDetails
            
-**This is a pre-Alpha build and i use it for experimenting ONLY, there are no documentaions and the code needs refurbishment.**
+**This is a pre-Alpha build and I use it for experimenting ONLY, there are no documentations and the code needs refurbishment.**
 
 *****THE APP I CURRENTLY WORKING WELL ONLY ON MOBILE***** 
