@@ -48,13 +48,13 @@ export default function UserDetails(props) {
 					/>
 				</div>
 				<div className="file-uploader">
-					<p>ID/PASSPORT:</p>
+					<p>*ID/PASSPORT:</p>
 					<input onChange={setVals.setIdPic} type="file" accept="image/pdf" />
-					<p className="description-selfie">*.PDF or .JEPG and 5mb or less</p>
+					<p className="description-selfie">*.PDF or .JEPG ,5mb or less</p>
 				</div>
 
-				<div>
-					<p>Self Photo:</p>
+				<div className="file-uploader">
+					<p>*Self-Photo:</p>
 					<input onChange={setVals.setSelfie} type="file" id="capture" accept="image/*" capture />
 					<p className="description-selfie">
 						*Please make sure your face is visible and the picture is taken at a well lit area
