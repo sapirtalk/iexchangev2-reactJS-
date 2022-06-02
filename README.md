@@ -2,7 +2,9 @@
 
 Updates:
 
-26/05/22 - right now the app is on netlify (https://628fb5a9a8691a2d5eaf7e34--benevolent-empanada-371572.netlify.app/)
-           only the convertor component is fully working.
+02/06/22 - right now the app is on netlify https://benevolent-empanada-371572.netlify.app/
+           *only the convertor component is fully working.
+           *added file inputs to UserDetails
+           
 
 *****THE APP I CURRENTLY WORKING WELL ONLY ON MOBILE***** 
