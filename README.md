@@ -2,7 +2,7 @@
 
 Updates:
 
-05/06/22 - right now the app is on netlify https://benevolent-empanada-371572.netlify.app/
+05/06/22 - right now the app is on netlify https://benevolent-empanada-371572.netlify.app
 
           *the app functionality is fully working
           *the users data is getting uploaded from the site to FireBase storage
