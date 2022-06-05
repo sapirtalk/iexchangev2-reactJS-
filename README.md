@@ -6,6 +6,7 @@ Updates:
 
            *only the convertor component is fully working.
            *added file inputs to UserDetails
+           *fixed Font issues on mobile
            
 **This is a pre-Alpha build and I use it for experimenting ONLY, there are no documentations and the code needs refurbishment.**
 
