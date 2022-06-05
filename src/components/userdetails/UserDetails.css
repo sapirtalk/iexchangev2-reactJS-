@@ -20,6 +20,12 @@
 	margin-left: 10px;
 }
 
+.mobile {
+	margin-bottom: 30px;
+	justify-content: center;
+	margin-left: 10px;
+}
+
 .countryDrop {
 	display: flex;
 	margin-bottom: 20px;

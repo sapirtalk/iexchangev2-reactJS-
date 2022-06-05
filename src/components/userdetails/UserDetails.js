@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import CountryDrop from './countryDrop/CountryDrop';
 import './UserDetails.css';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function UserDetails(props) {
 	const getVals = props.getVals;
@@ -18,6 +19,7 @@ export default function UserDetails(props) {
 							label="First Name:"
 							size="small"
 							sx={{ width: 160 }}
+							onChange={setVals.setFirstName}
 						/>
 					</span>
 					<span>
@@ -27,11 +29,30 @@ export default function UserDetails(props) {
 							label="Last Name:"
 							size="small"
 							sx={{ width: 160 }}
+							onChange={setVals.setLastName}
 						/>
 					</span>
 				</div>
 				<div className="email">
-					<TextField required id="outlined-required" label="Email:" size="small" sx={{ width: 250 }} />
+					<TextField
+						onChange={setVals.setEmail}
+						required
+						id="outlined-required"
+						label="Email:"
+						size="small"
+						sx={{ width: 250 }}
+					/>
+				</div>
+				<div className="mobile">
+					<TextField
+						onChange={setVals.setMobile}
+						required
+						id="outlined-required"
+						label="Phone Number:"
+						size="small"
+						sx={{ width: 250 }}
+						type="number"
+					/>
 				</div>
 				<div className="countryDrop">
 					<CountryDrop
@@ -85,19 +106,31 @@ export default function UserDetails(props) {
 				</div>
 				<div className="approval-checkBox">
 					<FormGroup>
-						<FormControlLabel control={<Checkbox />} label="I approve the amounts and the exchange rate." />
+						<FormControlLabel
+							control={<Checkbox onChange={props.amountsFlag} />}
+							label="I approve the amounts and the exchange rate."
+						/>
 					</FormGroup>
 				</div>
 				<div className="approval-checkBox">
 					<FormGroup>
 						<FormControlLabel
-							control={<Checkbox />}
+							control={<Checkbox onChange={props.termsFlag} />}
 							label="i have read the terms & conditions and agree."
 						/>
 					</FormGroup>
 				</div>
 			</div>
+			<ReCAPTCHA
+				theme="dark"
+				onChange={props.recapchaFlag}
+				sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+				ref={props.recaptchaRef}
+				size="invisible"
+				badge="bottomright"
+			/>
 			<button onClick={props.handleBack}>Back</button>
+			<button onClick={props.submit}>SUBMIT</button>
 		</div>
 	);
 }
