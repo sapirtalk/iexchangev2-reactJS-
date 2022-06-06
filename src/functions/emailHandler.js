@@ -1,7 +1,7 @@
 import emailjs from '@emailjs/browser';
 
 const sendEmail = (params) => {
-	emailjs.sendForm('service_dgoz1ia', 'template_3f6y4og', params, 'AOMLDowdUezNI3xPA').then(
+	emailjs.sendForm('service_waxtf7t', 'template_m65y3tn', params, 'b6VaHRujA3r8bQOYH').then(
 		(result) => {
 			console.log(result.text);
 		},

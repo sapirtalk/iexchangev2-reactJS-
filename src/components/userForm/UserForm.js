@@ -12,6 +12,8 @@ import SubmitedScreen from '../SubmitedScreen';
 import sendEmail from '../../functions/emailHandler';
 
 function UserForm() {
+	const initEmailMessage = 'US account details and instructions';
+
 	const [ amount, setAmount ] = useState(0);
 	const [ prefixFrom, setPrefixFrom ] = useState('$');
 	const [ prefixTo, setPrefixTo ] = useState('₪');
@@ -31,7 +33,7 @@ function UserForm() {
 	const [ amountsFlag, setAmountsFlag ] = Toggle(false);
 	const [ termsFlag, setTermsFlag ] = Toggle(false);
 	const [ pageMove, setPageMove ] = useState('convertor');
-	const [ emailMessage, setEmailMessage ] = useState('no message');
+	const [ emailMessage, setEmailMessage ] = useState(initEmailMessage);
 
 	const issueDate = new Date();
 	const recaptchaRef = React.createRef();
@@ -60,7 +62,8 @@ function UserForm() {
 		recapcha,
 		amountsFlag,
 		termsFlag,
-		transCode
+		transCode,
+		emailMessage
 	};
 	const detailsSetVals = {
 		setFirstName,
@@ -86,20 +89,6 @@ function UserForm() {
 		recaptchaRef.current.execute();
 		console.log(detailsGetVals);
 
-		var message = '';
-		switch (accCountry) {
-			case 'US':
-				message = 'US account details and instructions';
-				setEmailMessage(message);
-				break;
-			case 'Israel':
-				message = 'Israel account details and instructions';
-				setEmailMessage(message);
-				break;
-			default:
-				message = 'no Country';
-		}
-
 		if (goodSubmit(detailsGetVals)) {
 			handleSubmit(detailsGetVals);
 			sendEmail(params.current);
@@ -123,8 +112,13 @@ function UserForm() {
 						recaptchaRef={recaptchaRef}
 						amountsFlag={setAmountsFlag}
 						termsFlag={setTermsFlag}
+						setEmailMessage={setEmailMessage}
 						submit={submitHandler}
 					/>
+				);
+			default:
+				return (
+					<Convertor setFormVals={convertSetVals} getFormVals={convertGetVals} continue={handlePageMove} />
 				);
 
 			case 'submited':

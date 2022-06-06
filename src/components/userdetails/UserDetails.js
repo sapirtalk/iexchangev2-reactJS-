@@ -8,6 +8,24 @@ export default function UserDetails(props) {
 	const getVals = props.getVals;
 	const setVals = props.setVals;
 
+	const handleAccCountryChange = (value) => {
+		var message = '';
+		switch (value) {
+			case 'US':
+				message = 'US account details and instructions';
+				props.setEmailMessage(message);
+				break;
+			case 'Israel':
+				message = 'Israel account details and instructions';
+				props.setEmailMessage(message);
+				break;
+			default:
+				message = 'no Country';
+		}
+
+		setVals.setAccCountry(value);
+	};
+
 	return (
 		<div>
 			<div className="form">
@@ -58,7 +76,7 @@ export default function UserDetails(props) {
 					<CountryDrop
 						value={getVals.accCountry}
 						label="Where is your bank?:"
-						handleChange={setVals.setAccCountry}
+						handleChange={handleAccCountryChange}
 						helperText="so you can use your local bank with no extra fee"
 					/>
 					<CountryDrop
