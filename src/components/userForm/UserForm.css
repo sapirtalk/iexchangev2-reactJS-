@@ -12,3 +12,7 @@
 	font-family: 'PT Serif Caption', serif;
 	font-family: 'Roboto', sans-serif;
 }
+
+.hiddenForm {
+	display: none;
+}
