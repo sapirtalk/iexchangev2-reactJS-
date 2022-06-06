@@ -2,15 +2,15 @@
 
 Updates:
 
-05/06/22 - right now the app is on netlify https://benevolent-empanada-371572.netlify.app
+06/06/22 - right now the app is on netlify https://benevolent-empanada-371572.netlify.app/
 
           *the app functionality is fully working
-          *the users data is getting uploaded from the site to FireBase storage
+          *the users data is getting uploaded from the app to FireBase storage
           *added unique Transaction code for each user after submit
           *added a form submited screen
+          *added emailing system to customers
           
           TODO:
-          *emailing system to customers
           *email confimation(maybe)
           *better css + page animations
            
