@@ -12,7 +12,8 @@ import SubmitedScreen from '../submitedScreen/SubmitedScreen';
 import sendEmail from '../../functions/emailHandler';
 
 function UserForm() {
-	const initEmailMessage = 'US account details and instructions';
+	const initEmailMessage =
+		'IExchange US account information: \n Account No : usNo \n Branch No : usBranch \n Bank No: usBank';
 
 	const [ amount, setAmount ] = useState(0);
 	const [ prefixFrom, setPrefixFrom ] = useState('$');

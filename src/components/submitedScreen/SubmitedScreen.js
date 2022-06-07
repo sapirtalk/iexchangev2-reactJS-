@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './SubmitedScreen.css';
-import sendEmailLogo from '../../assets/send-mail.png';
 
 export default function SubmitedScreen(props) {
 	const [ resendFlag, SetResendFlag ] = useState(false);
@@ -27,11 +26,10 @@ export default function SubmitedScreen(props) {
 					to fill the form again or email us at iexchange55@gmail.com for help.
 				</p>
 			) : (
-				<a className="Resend" onClick={handleResend}>
+				<p className="Resend" onClick={handleResend}>
 					Resend
-				</a>
+				</p>
 			)}
-			<img className="logo" src={sendEmailLogo} alt="logo" />
 		</div>
 	);
 }

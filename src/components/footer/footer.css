@@ -1,5 +1,5 @@
 .footer {
-	height: 8rem;
+	height: 5rem;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -16,9 +16,9 @@
 }
 
 .footer-logo {
-	height: 8rem;
+	height: 6rem;
 	width: auto;
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 .footer-copyright {
