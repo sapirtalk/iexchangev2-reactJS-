@@ -1,0 +1,23 @@
+.submited {
+	margin: 2px 10px;
+}
+
+.code {
+	color: blue;
+}
+
+.resent {
+	color: red;
+}
+
+.Resend {
+	color: blue;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.logo {
+	height: 100px;
+	width: auto;
+	margin: 6px 8rem;
+}

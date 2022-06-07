@@ -8,7 +8,7 @@ import HandleFileInput from '../../Hooks/HandleFileInput';
 import handleSubmit from '../../storageHandle';
 import goodSubmit from '../../functions/goodSubmit';
 import { v4 as uuid } from 'uuid';
-import SubmitedScreen from '../SubmitedScreen';
+import SubmitedScreen from '../submitedScreen/SubmitedScreen';
 import sendEmail from '../../functions/emailHandler';
 
 function UserForm() {
@@ -34,6 +34,7 @@ function UserForm() {
 	const [ termsFlag, setTermsFlag ] = Toggle(false);
 	const [ pageMove, setPageMove ] = useState('convertor');
 	const [ emailMessage, setEmailMessage ] = useState(initEmailMessage);
+	const [ resendNum, SetResendNum ] = useState(0);
 
 	const issueDate = new Date();
 	const recaptchaRef = React.createRef();
@@ -96,6 +97,13 @@ function UserForm() {
 		}
 	};
 
+	const resendEmail = () => {
+		if (resendNum < 3) {
+			SetResendNum(resendNum + 1);
+			sendEmail(params.current);
+		} else return;
+	};
+
 	const showPage = () => {
 		switch (pageMove) {
 			case 'convertor':
@@ -122,7 +130,7 @@ function UserForm() {
 				);
 
 			case 'submited':
-				return <SubmitedScreen transCode={transCode} />;
+				return <SubmitedScreen transCode={transCode} resend={resendEmail} />;
 		}
 	};
 
@@ -141,6 +149,8 @@ function UserForm() {
 				<input readOnly name="exchangeRate" value={exchangeRate} />
 				<input readOnly name="accCountry" value={accCountry} />
 				<input readOnly name="message" value={emailMessage} />
+				<input readOnly name="from" value={from} />
+				<input readOnly name="to" value={to} />
 			</form>
 		</div>
 	);

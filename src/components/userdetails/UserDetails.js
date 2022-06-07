@@ -12,11 +12,13 @@ export default function UserDetails(props) {
 		var message = '';
 		switch (value) {
 			case 'US':
-				message = 'US account details and instructions';
+				message =
+					'IExchange US account information: \n Account No : usNo \n Branch No : usBranch \n Bank No: usBank';
 				props.setEmailMessage(message);
 				break;
 			case 'Israel':
-				message = 'Israel account details and instructions';
+				message =
+					'IExchange israeli account information: \n Account No : ISNo \n Branch No : ISBranch \n Bank No: ISBank';
 				props.setEmailMessage(message);
 				break;
 			default:
@@ -147,8 +149,14 @@ export default function UserDetails(props) {
 				size="invisible"
 				badge="bottomright"
 			/>
-			<button onClick={props.handleBack}>Back</button>
-			<button onClick={props.submit}>SUBMIT</button>
+			<div className="buttons">
+				<button className="buttons-back" onClick={props.handleBack}>
+					Back
+				</button>
+				<button className="buttons-submit" onClick={props.submit}>
+					Submit
+				</button>
+			</div>
 		</div>
 	);
 }
