@@ -92,8 +92,9 @@ function UserForm() {
 
 		if (goodSubmit(detailsGetVals)) {
 			var result = sendEmail(params.current);
+			console.log(result);
 
-			if (result === 'success') {
+			if (result === undefined) {
 				setPageMove('submited');
 				handleSubmit(detailsGetVals);
 			} else alert('Oops! somthing is wrong with the email you have entered please check again');
