@@ -35,7 +35,6 @@ function UserForm() {
 	const [ termsFlag, setTermsFlag ] = Toggle(false);
 	const [ pageMove, setPageMove ] = useState('convertor');
 	const [ emailMessage, setEmailMessage ] = useState(initEmailMessage);
-	const [ resendNum, SetResendNum ] = useState(0);
 
 	const issueDate = new Date();
 	const recaptchaRef = React.createRef();
@@ -92,17 +91,17 @@ function UserForm() {
 		console.log(detailsGetVals);
 
 		if (goodSubmit(detailsGetVals)) {
-			handleSubmit(detailsGetVals);
-			sendEmail(params.current);
-			setPageMove('submited');
+			var result = sendEmail(params.current);
+
+			if (result === 'success') {
+				setPageMove('submited');
+				handleSubmit(detailsGetVals);
+			} else alert('Oops! somthing is wrong with the email you have entered please check again');
 		}
 	};
 
 	const resendEmail = () => {
-		if (resendNum < 3) {
-			SetResendNum(resendNum + 1);
-			sendEmail(params.current);
-		} else return;
+		sendEmail(params.current);
 	};
 
 	const showPage = () => {
@@ -131,7 +130,9 @@ function UserForm() {
 				);
 
 			case 'submited':
-				return <SubmitedScreen transCode={transCode} resend={resendEmail} />;
+				return (
+					<SubmitedScreen transCode={transCode} resend={resendEmail} toEmail={email} firstName={firstName} />
+				);
 		}
 	};
 

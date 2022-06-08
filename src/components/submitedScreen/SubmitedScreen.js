@@ -12,7 +12,8 @@ export default function SubmitedScreen(props) {
 	return (
 		<div className="submited">
 			<h3 className="details">
-				Thank you for using our services! we will contact you by email to continue the proccess.
+				Thank you for using our services {props.firstName}! we will contact you by email to continue the
+				proccess at {props.toEmail}.
 			</h3>
 			<h2 className="codeHead">Transaction code:</h2>
 			<h2 className="code">{props.transCode}</h2>
@@ -22,8 +23,8 @@ export default function SubmitedScreen(props) {
 			<p>Didnt recieve any email? </p>
 			{resendFlag ? (
 				<p className="resent">
-					Email resent! please check your inbox again. If you still didnt get an email back then you can: try
-					to fill the form again or email us at iexchange55@gmail.com for help.
+					Email resent! please check your inbox again. If you still didnt get an email back then you can try
+					to apply again or email us at iexchange55@gmail.com for help.
 				</p>
 			) : (
 				<p className="Resend" onClick={handleResend}>

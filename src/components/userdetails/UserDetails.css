@@ -64,6 +64,7 @@
 	/* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
 	margin: 5px 10px;
 	font-weight: 800;
+	margin-top: 20px;
 }
 
 .file-uploader {
@@ -125,4 +126,43 @@
 .buttons-submit:active {
 	position: relative;
 	top: 1px;
+}
+
+input[type="file"] {
+	display: none;
+}
+
+.file-uploader-label img {
+	height: 40px;
+	width: auto;
+	cursor: pointer;
+	margin-left: 10px;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 0.5px 1px;
+	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
+}
+
+.file-uploader-items {
+	display: flex;
+	flex-direction: row;
+}
+
+.checkIcon {
+	height: 20px;
+	width: auto;
+	margin-left: 20px;
+}
+
+.pic {
+	display: flex;
+	flex-direction: row;
+	margin-left: 15rem;
+	position: absolute;
+}
+
+.picIcon {
+	height: 50px;
+	width: auto;
+	margin: 2px 2px;
 }

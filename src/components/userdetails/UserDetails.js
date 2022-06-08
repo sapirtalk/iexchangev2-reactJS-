@@ -3,6 +3,11 @@ import { TextField, FormGroup, FormControlLabel, Checkbox } from '@mui/material'
 import CountryDrop from './countryDrop/CountryDrop';
 import './UserDetails.css';
 import ReCAPTCHA from 'react-google-recaptcha';
+import camera from '../../assets/camera.png';
+import check from '../../assets/check.png';
+import id from '../../assets/id.png';
+import passport from '../../assets/passport.png';
+import selfie from '../../assets/selfie.png';
 
 export default function UserDetails(props) {
 	const getVals = props.getVals;
@@ -90,15 +95,35 @@ export default function UserDetails(props) {
 				</div>
 				<div className="file-uploader">
 					<p>*ID/PASSPORT:</p>
-					<input onChange={setVals.setIdPic} type="file" />
-					<p className="description-selfie">*.PDF or .JEPG ,5mb or less</p>
+					<div className="file-uploader-items">
+						<label className="file-uploader-label">
+							<img src={camera} alt="IDpic" />
+							<input onChange={setVals.setIdPic} type="file" capture />
+						</label>
+						{getVals.idPic !== null ? <img className="checkIcon" src={check} alt="done" /> : <div />}
+						<div className="pic">
+							<img className="picIcon" src={id} alt="idillu" />
+							<img className="picIcon" src={passport} alt="passillu" />
+						</div>
+					</div>
+					<p className="description-selfie">Please take a photo of your ID or Passport</p>
 				</div>
 
 				<div className="file-uploader">
-					<p>*Self-Photo:</p>
-					<input onChange={setVals.setSelfie} type="file" id="capture" capture />
+					<p>*Face Photo:</p>
+					<div className="file-uploader-items">
+						<label className="file-uploader-label">
+							<img src={camera} alt="IDpic" />
+							<input onChange={setVals.setSelfie} type="file" capture />
+						</label>
+						{getVals.selfie !== null ? <img className="checkIcon" src={check} alt="done" /> : <div />}
+						<div className="pic">
+							<img className="picIcon" src={selfie} alt="selfie" />
+						</div>
+					</div>
 					<p className="description-selfie">
-						*Please make sure your face is visible and the picture is taken at a well lit area
+						We need to verify that it is really you and no one is taking advantage of you *Please make sure
+						your face is visible and the picture is taken at a well lit area
 					</p>
 				</div>
 				<h1 className="approval-headline">Please approve the following:</h1>
