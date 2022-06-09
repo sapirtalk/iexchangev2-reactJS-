@@ -12,7 +12,7 @@
 	z-index: 1;
 	font-family: 'PT Serif Caption', serif;
 	font-family: 'Roboto', sans-serif;
-	animation: convertorAnim 1s ease 0s 1 normal none;
+	animation: convertorAnim 2s ease 0s 1 normal none;
 }
 
 @keyframes convertorAnim {

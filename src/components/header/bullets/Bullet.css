@@ -1,0 +1,19 @@
+.bullet {
+	color: white;
+	background-color: #ff8533;
+	border-radius: 30px;
+	align-content: center;
+	display: flex;
+}
+
+.bullet img {
+	height: 60px;
+	width: auto;
+	margin-left: 19px;
+	position: relative;
+}
+
+.desc {
+	font-size: 15px;
+	text-align: center;
+}

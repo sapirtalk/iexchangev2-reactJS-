@@ -1,4 +1,4 @@
-.header {
+.header-top {
 	margin: 0px 10px;
 	padding-top: 20px;
 	display: flex;
@@ -15,4 +15,15 @@
 .phrase {
 	color: white;
 	font-size: 35px;
+	margin-bottom: 10px;
+}
+.header-bullets-container {
+	margin: 0px 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.header-bullets-container-column {
+	margin-right: 0;
 }

@@ -35,13 +35,32 @@ function UserForm() {
 	const [ termsFlag, setTermsFlag ] = Toggle(false);
 	const [ pageMove, setPageMove ] = useState('convertor');
 	const [ emailMessage, setEmailMessage ] = useState(initEmailMessage);
+	const [ savedAmount, setSavedAmount ] = useState(0);
 	const [ transCode, setTransCode ] = useState('');
 
 	const issueDate = new Date();
 	const recaptchaRef = React.createRef();
 	const params = useRef();
-	const convertSetVals = { setAmount, setOutcome, setPrefixFrom, setPrefixTo, setTo, setFrom, setExchangeRate };
-	const convertGetVals = { amount, outcome, prefixFrom, prefixTo, to, from, exchangeRate };
+	const convertSetVals = {
+		setAmount,
+		setOutcome,
+		setPrefixFrom,
+		setPrefixTo,
+		setTo,
+		setFrom,
+		setExchangeRate,
+		setSavedAmount
+	};
+	const convertGetVals = {
+		amount,
+		outcome,
+		prefixFrom,
+		prefixTo,
+		to,
+		from,
+		exchangeRate,
+		savedAmount
+	};
 
 	const detailsGetVals = {
 		firstName,
@@ -64,7 +83,8 @@ function UserForm() {
 		amountsFlag,
 		termsFlag,
 		transCode,
-		emailMessage
+		emailMessage,
+		savedAmount
 	};
 	const detailsSetVals = {
 		setFirstName,
@@ -74,7 +94,8 @@ function UserForm() {
 		setToCountry,
 		setIdPic,
 		setSelfie,
-		setMobile
+		setMobile,
+		setSavedAmount
 	};
 
 	const handlePageMove = () => {

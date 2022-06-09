@@ -126,7 +126,7 @@ export default function Convertor(props) {
 						</p>
 					</div>
 				</div>
-				<div>{/* <p>You can save up to {savedAmount} by Exchanging with us!</p> */}</div>
+
 				{error ? (
 					<p style={{ color: 'red', fontSize: '13px' }}>Sorry! we can only exchange $100 or more</p>
 				) : (
