@@ -35,11 +35,11 @@ function UserForm() {
 	const [ termsFlag, setTermsFlag ] = Toggle(false);
 	const [ pageMove, setPageMove ] = useState('convertor');
 	const [ emailMessage, setEmailMessage ] = useState(initEmailMessage);
+	const [ transCode, setTransCode ] = useState('');
 
 	const issueDate = new Date();
 	const recaptchaRef = React.createRef();
 	const params = useRef();
-	const transCode = uuid();
 	const convertSetVals = { setAmount, setOutcome, setPrefixFrom, setPrefixTo, setTo, setFrom, setExchangeRate };
 	const convertGetVals = { amount, outcome, prefixFrom, prefixTo, to, from, exchangeRate };
 
@@ -80,6 +80,7 @@ function UserForm() {
 	const handlePageMove = () => {
 		if (pageMove === 'convertor') {
 			setPageMove('userDetails');
+			setTransCode(uuid());
 		} else if (pageMove === 'userDetails') {
 			setPageMove('convertor');
 		}

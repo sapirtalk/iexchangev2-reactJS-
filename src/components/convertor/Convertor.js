@@ -48,10 +48,14 @@ export default function Convertor(props) {
 	useEffect(
 		() => {
 			async function getData() {
-				const res = await axios.get(
-					`https://v6.exchangerate-api.com/v6/65e3ee71401d1a45e1c4fa6c/pair/${getFormVals.from}/${getFormVals.to}`
-				);
-				setFormVals.setExchangeRate(res.data.conversion_rate);
+				const to = getFormVals.to;
+				const from = getFormVals.from;
+				const res = await axios.get(`https://api.exchangerate.host/latest?base=${from}&symbols=${to}&places=3`);
+				const dataKeys = Object.keys(res.data.rates);
+				const newData = dataKeys.map((eachId) => {
+					return res.data.rates[eachId];
+				});
+				setFormVals.setExchangeRate(newData[0]);
 			}
 			getData();
 		},
@@ -122,6 +126,7 @@ export default function Convertor(props) {
 						</p>
 					</div>
 				</div>
+				<div>{/* <p>You can save up to {savedAmount} by Exchanging with us!</p> */}</div>
 				{error ? (
 					<p style={{ color: 'red', fontSize: '13px' }}>Sorry! we can only exchange $100 or more</p>
 				) : (

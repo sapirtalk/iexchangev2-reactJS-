@@ -12,6 +12,17 @@
 	position: sticky;
 	top: 0;
 	z-index: 2;
+	animation: navAnim 1s ease 0s 1 normal forwards;
+}
+
+@keyframes navAnim {
+	0% {
+		transform: translateY(-100px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
 }
 
 .headerLogo {

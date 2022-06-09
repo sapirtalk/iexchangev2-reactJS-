@@ -1,0 +1,18 @@
+.header {
+	margin: 0px 10px;
+	padding-top: 20px;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.header img {
+	height: 10rem;
+	width: auto;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
+.phrase {
+	color: white;
+	font-size: 35px;
+}
