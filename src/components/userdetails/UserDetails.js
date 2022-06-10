@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import CountryDrop from './countryDrop/CountryDrop';
 import './UserDetails.css';
+import PrefixSelect from './mobilePrefix/PrefixSelect';
 import ReCAPTCHA from 'react-google-recaptcha';
 import camera from '../../assets/camera.png';
 import check from '../../assets/check.png';
@@ -69,6 +70,7 @@ export default function UserDetails(props) {
 					/>
 				</div>
 				<div className="mobile">
+					<PrefixSelect value={getVals.mobilePrefix} label="Prefix:" handleChange={setVals.setMobilePrefix} />
 					<TextField
 						onChange={setVals.setMobile}
 						required

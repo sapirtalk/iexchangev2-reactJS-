@@ -12,7 +12,7 @@ function handleSubmit(data) {
         First name: ${data.firstName}\n
         Last name: ${data.LastName}\n
         Email: ${data.email}\n
-        Phone: ${data.mobile}\n
+        Phone: ${data.mobilePrefix} ${data.mobile}\n
         Bank address: ${data.accCountry}\n
         Heading to: ${data.toCountry}\n
 

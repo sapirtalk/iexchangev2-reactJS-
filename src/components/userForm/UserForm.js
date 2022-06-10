@@ -15,6 +15,7 @@ import noFee from '../../assets/no-fee.png';
 import payment from '../../assets/mobile-payment.png';
 import international from '../../assets/international.png';
 import wallet from '../../assets/wallet.png';
+import hours from '../../assets/24-hours.png';
 
 function UserForm() {
 	const initEmailMessage =
@@ -40,8 +41,8 @@ function UserForm() {
 	const [ termsFlag, setTermsFlag ] = Toggle(false);
 	const [ pageMove, setPageMove ] = useState('convertor');
 	const [ emailMessage, setEmailMessage ] = useState(initEmailMessage);
-	const [ savedAmount, setSavedAmount ] = useState(0);
 	const [ transCode, setTransCode ] = useState('');
+	const [ mobilePrefix, setMobilePrefix ] = useState('+972');
 
 	const issueDate = new Date();
 	const recaptchaRef = React.createRef();
@@ -53,8 +54,7 @@ function UserForm() {
 		setPrefixTo,
 		setTo,
 		setFrom,
-		setExchangeRate,
-		setSavedAmount
+		setExchangeRate
 	};
 	const convertGetVals = {
 		amount,
@@ -63,8 +63,7 @@ function UserForm() {
 		prefixTo,
 		to,
 		from,
-		exchangeRate,
-		savedAmount
+		exchangeRate
 	};
 
 	const detailsGetVals = {
@@ -89,7 +88,7 @@ function UserForm() {
 		termsFlag,
 		transCode,
 		emailMessage,
-		savedAmount
+		mobilePrefix
 	};
 	const detailsSetVals = {
 		setFirstName,
@@ -100,7 +99,7 @@ function UserForm() {
 		setIdPic,
 		setSelfie,
 		setMobile,
-		setSavedAmount
+		setMobilePrefix
 	};
 
 	const handlePageMove = () => {
@@ -171,12 +170,13 @@ function UserForm() {
 				<Bullet image={payment} desc="Easy pay by mobile!" />
 				<Bullet image={international} desc="Use our services even when abroad!" />
 				<Bullet image={wallet} desc="No need to carry cash around!" />
+				<Bullet image={hours} desc="Get your funds in less then 24 hours!" />
 			</div>
 			{showPage()}
 			<div className="payComp">
-				<i class="fa-brands fa-cc-visa " />
-				<i class="fa-brands fa-apple-pay" />
-				<i class="fa-brands fa-google-pay" />
+				<i className="fa-brands fa-cc-visa " />
+				<i className="fa-brands fa-apple-pay" />
+				<i className="fa-brands fa-google-pay" />
 			</div>
 			<form ref={params} className="hiddenForm">
 				<input readOnly name="firstName" value={firstName} />

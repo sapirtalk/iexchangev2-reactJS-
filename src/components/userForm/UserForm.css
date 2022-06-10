@@ -40,7 +40,7 @@
 
 .payComp {
 	display: flex;
-	justify-content: end;
+	justify-content: flex-end;
 	font-size: 50px;
 	margin-top: 10px;
 }
