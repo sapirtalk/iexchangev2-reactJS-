@@ -19,11 +19,5 @@
 }
 .header-bullets-container {
 	margin: 0px 10px;
-	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
-}
-
-.header-bullets-container-column {
-	margin-right: 0;
 }

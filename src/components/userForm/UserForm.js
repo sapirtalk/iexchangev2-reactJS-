@@ -10,6 +10,11 @@ import goodSubmit from '../../functions/goodSubmit';
 import { v4 as uuid } from 'uuid';
 import SubmitedScreen from '../submitedScreen/SubmitedScreen';
 import sendEmail from '../../functions/emailHandler';
+import Bullet from '.././header/bullets/Bullet';
+import noFee from '../../assets/no-fee.png';
+import payment from '../../assets/mobile-payment.png';
+import international from '../../assets/international.png';
+import wallet from '../../assets/wallet.png';
 
 function UserForm() {
 	const initEmailMessage =
@@ -161,8 +166,18 @@ function UserForm() {
 
 	return (
 		<div className="UserForm">
+			<div className="userFormBullets">
+				<Bullet image={noFee} desc="We take no exchange fees!" />
+				<Bullet image={payment} desc="Easy pay by mobile!" />
+				<Bullet image={international} desc="Use our services even when abroad!" />
+				<Bullet image={wallet} desc="No need to carry cash around!" />
+			</div>
 			{showPage()}
-
+			<div className="payComp">
+				<i class="fa-brands fa-cc-visa " />
+				<i class="fa-brands fa-apple-pay" />
+				<i class="fa-brands fa-google-pay" />
+			</div>
 			<form ref={params} className="hiddenForm">
 				<input readOnly name="firstName" value={firstName} />
 				<input readOnly name="amount" value={amount} />
