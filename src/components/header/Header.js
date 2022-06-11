@@ -2,6 +2,12 @@ import React from 'react';
 import travel from '../../assets/travel.png';
 import './Header.css';
 
+/**
+ * Component for the header.
+ *
+ * @component 
+ */
+
 export default function Header() {
 	return (
 		<div className="header">

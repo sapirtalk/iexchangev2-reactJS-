@@ -2,6 +2,12 @@ import React from 'react';
 import './footer.css';
 import footerLogo from '../../assets/logo.png';
 
+/**
+ * Component for the footer.
+ *
+ * @component 
+ */
+
 function Footer() {
 	return (
 		<div className="footer">

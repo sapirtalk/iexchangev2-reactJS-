@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 import './SubmitedScreen.css';
 
+/**
+ * Component for the sumbited phase.
+ *
+ * @component
+ * 
+ * @props  firstName , toEmail, transCode
+ * @states resendFlag
+ */
+
 export default function SubmitedScreen(props) {
 	const [ resendFlag, SetResendFlag ] = useState(false);
-
+	/**
+	 * Triggers resend of email to the user
+	 */
 	const handleResend = () => {
 		SetResendFlag(true);
 		props.resend();

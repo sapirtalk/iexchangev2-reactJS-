@@ -6,12 +6,30 @@ import Toggle from '../../Hooks/Toggle';
 import axios from 'axios';
 import { findPrefix } from './Currencies';
 
+/**
+ * Component for the convertor.
+ *
+ * @component
+ * @props getFormVals, setFormVals , continue
+ * @states isApi , error
+ * @example
+ * const getFormVals = values
+ * const setFormVals= valuesChangeFunctions
+ * const continue = parentContinueFunction
+ * 
+ * 
+ */
+
 export default function Convertor(props) {
 	const getFormVals = props.getFormVals;
 	const setFormVals = props.setFormVals;
 	const [ isApi, setApi ] = Toggle(false);
 	const [ error, setError ] = Toggle(false);
 
+	/**
+	 * handeling the switch of currency all around Convertor component.
+	 * switching currency prefixes, exchange rate and calculated outcome, also reruns the getData for API
+	 */
 	const handleSwitch = () => {
 		let temp = getFormVals.to;
 		let prefixFrom = findPrefix(temp);
@@ -23,6 +41,9 @@ export default function Convertor(props) {
 		setApi(isApi);
 	};
 
+	/**
+	 * triggers continue from the continue button, will trigger error if terms not met
+	 */
 	const handleContinue = () => {
 		if (getFormVals.amount < 100 && getFormVals.from === 'USD') {
 			if (!error) setError();
@@ -34,7 +55,11 @@ export default function Convertor(props) {
 		if (error) setError();
 		props.continue();
 	};
-
+	/**
+	 * handeling the change of input amount, calculating the according outcome and changing its value
+	 * making sure to save the amount input as a NUMBER
+	 * @param   {evevt} e current change value here is event.target.value 
+	 */
 	const handleAmountChange = (e) => {
 		var value = e.target.value;
 		if (value !== 0 && getFormVals.exchangeRate !== 0) {
@@ -47,6 +72,10 @@ export default function Convertor(props) {
 
 	useEffect(
 		() => {
+			/**
+		 	* Call to exchangeRate API to get the current exchange rate of the currencies.
+		 	* triggerd by isApi change
+		 	*/
 			async function getData() {
 				const to = getFormVals.to;
 				const from = getFormVals.from;
@@ -63,6 +92,10 @@ export default function Convertor(props) {
 	);
 	useEffect(
 		() => {
+			/**
+		 	* changing the outcome according to the currencies switch, calculating the new outcome.
+		 	* triggerd by exchange rate change.
+		 	*/
 			async function updateBySwitch() {
 				var calc = getFormVals.amount * getFormVals.exchangeRate;
 				var fixed = Number(calc.toFixed(3));

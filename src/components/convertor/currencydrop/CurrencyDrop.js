@@ -2,7 +2,27 @@ import { React } from 'react';
 import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import { Currencies, findPrefix } from '../Currencies';
 
+/**
+ * Component for currency dropdown select .
+ *
+ * @component
+ * @props label, setValue , value , setApi , setPrefix
+ * 
+ * @example
+ * const setValue=handleChange
+ * const setPrefix= setPrefix
+ * const setApi= setApi
+ * const label="From currency"
+ * 
+ * 
+ */
+
 export default function CurrencyDrop(props) {
+	/**
+ * handeling the change of currency, will update the currency state, rerun the converter API useEffect again
+ * and change to the correct cuurency prefix
+ * @param   {event} event current change value here is event.target.value 
+ */
 	const handleChange = (event) => {
 		let value = event.target.value;
 		props.setValue(value);

@@ -1,3 +1,9 @@
+/**
+ * Checks if the details that were entered are as expected
+ * @param   {list} data  List of the user's details
+ * @return {boolean}  true if it is a good submit  
+ */
+
 const goodSubmit = (data) => {
 	var flag = false;
 	var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;

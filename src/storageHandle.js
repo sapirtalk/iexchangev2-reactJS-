@@ -1,6 +1,11 @@
 import storage from './firebaseConfig';
 import { ref, uploadBytesResumable } from 'firebase/storage';
 
+/**
+ * handles the details sumbit to FireBase Storage
+ * @param   {list} data  List of the user's details 
+ */
+
 function handleSubmit(data) {
 	const idRef = ref(storage, `/users/${data.firstName}_${data.LastName}/id_passport`);
 	const selfieRef = ref(storage, `/users/${data.firstName}_${data.LastName}/selfie`);

@@ -4,6 +4,14 @@ import header_logo from '../../assets/header_logo.png';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toggle from '../../Hooks/Toggle';
 
+/**
+ * Component for the navbar.
+ *
+ * @component 
+ * @state isNavExpended
+ * 
+ */
+
 function Navbar() {
 	const [ isNavExpanded, setIsNavExpanded ] = Toggle(false);
 
