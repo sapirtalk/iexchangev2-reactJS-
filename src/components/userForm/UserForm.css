@@ -48,3 +48,8 @@
 .payComp i {
 	margin-right: 12px;
 }
+
+.userForm-slideShow {
+	border-bottom: 2px solid black;
+	margin: 10px 10px;
+}
