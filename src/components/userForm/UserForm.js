@@ -16,6 +16,7 @@ import payment from '../../assets/mobile-payment.png';
 import international from '../../assets/international.png';
 import wallet from '../../assets/wallet.png';
 import hours from '../../assets/24-hours.png';
+import HowTo from '../howTo/HowTo';
 
 function UserForm(props) {
 	const initEmailMessage =
@@ -181,6 +182,13 @@ function UserForm(props) {
 					<Bullet image={international} desc="Use our services even when abroad!" />
 					<Bullet image={wallet} desc="No need to carry cash around!" />
 					<Bullet image={hours} desc="Get your funds in less then 24 hours!" />
+				</div>
+			) : (
+				''
+			)}
+			{pageMove === 'convertor' ? (
+				<div className="userForm-howTo">
+					<HowTo />
 				</div>
 			) : (
 				''

@@ -17,14 +17,16 @@ function Navbar() {
 
 	return (
 		<nav className="navigation">
-			<img className="headerLogo" src={header_logo} alt="header_logo" />
+			<a href="/">
+				<img className="headerLogo" src={header_logo} alt="header_logo" />
+			</a>
 			<button onClick={setIsNavExpanded} className="hamburger">
 				<MenuIcon />
 			</button>
 			<div className={isNavExpanded ? 'navigation-menu expanded' : 'navigation-menu'}>
 				<ul>
 					<li>
-						<a href="/home">Home</a>
+						<a href="/">Home</a>
 					</li>
 					<li>
 						<a href="/about">About</a>
