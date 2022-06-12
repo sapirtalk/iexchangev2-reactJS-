@@ -32,8 +32,8 @@ export default function SlideShow() {
 		<div className="slideshow">
 			<div className="slideshowSlider" style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}>
 				{slidesProps.map((props, index) => (
-					<div className="slider">
-						<Slide image={props.image} desc={props.desc} key={index} />
+					<div className="slider" key={index}>
+						<Slide image={props.image} desc={props.desc} name={props.name} key={index} />
 					</div>
 				))}
 			</div>

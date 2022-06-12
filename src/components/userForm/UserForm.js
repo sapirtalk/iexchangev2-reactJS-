@@ -16,7 +16,6 @@ import payment from '../../assets/mobile-payment.png';
 import international from '../../assets/international.png';
 import wallet from '../../assets/wallet.png';
 import hours from '../../assets/24-hours.png';
-import SlideShow from '../slideShow/SlideShow';
 
 function UserForm() {
 	const initEmailMessage =
@@ -172,9 +171,6 @@ function UserForm() {
 				<Bullet image={international} desc="Use our services even when abroad!" />
 				<Bullet image={wallet} desc="No need to carry cash around!" />
 				<Bullet image={hours} desc="Get your funds in less then 24 hours!" />
-			</div>
-			<div className="userForm-slideShow">
-				<SlideShow />
 			</div>
 			{showPage()}
 			<div className="payComp">

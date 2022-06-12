@@ -1,20 +1,26 @@
 .slide {
-	display: flex;
-	flex-direction: row;
-	background-color: rgba(161, 161, 161, 0.2);
+	background-color: rgba(255, 255, 255, 0.578);
 	border-radius: 30px;
 	padding: 10px 5px;
-	justify-content: space-around;
+	align-content: center;
 	height: 10rem;
 	margin-bottom: 10px;
 }
 
-.slide img {
-	height: 5rem;
+.slide-stars img {
+	height: 3rem;
 	width: auto;
+	margin-left: 2px;
+	margin-right: 2px;
 }
 
-.slide p {
+.slide-stars {
+	text-align: center;
+}
+
+.slide-desc {
+	text-align: center;
 	font-weight: 700;
-	font-size: larger;
+	font-size: 20px;
+	margin-top: 0px;
 }

@@ -1,19 +1,22 @@
-import exchange from '../../assets/currency-exchange.png';
+import star from '../../assets/star.png';
 import formFill from '../../assets/booking.png';
 import email from '../../assets/email.png';
 
 const slidesProps = [
 	{
-		image: exchange,
-		desc: 'desc 1'
+		image: star,
+		desc: '"Why didnt they think of it sooner!"',
+		name: 'Mike'
 	},
 	{
-		image: formFill,
-		desc: 'desc 2'
+		image: star,
+		desc: '"Brilliant"',
+		name: 'Danielle'
 	},
 	{
-		image: email,
-		desc: 'desc 3'
+		image: star,
+		desc: '"Was waiting for somthing like this"',
+		name: 'Roy'
 	}
 ];
 

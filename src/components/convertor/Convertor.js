@@ -108,6 +108,7 @@ export default function Convertor(props) {
 
 	return (
 		<div className="Convertor">
+			<p className="Convertor-heading">How much would you like to exchange?</p>
 			<div className="amount">
 				<AmountInput
 					setAmount={handleAmountChange}
