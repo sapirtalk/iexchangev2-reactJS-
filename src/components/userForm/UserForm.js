@@ -17,7 +17,7 @@ import international from '../../assets/international.png';
 import wallet from '../../assets/wallet.png';
 import hours from '../../assets/24-hours.png';
 
-function UserForm() {
+function UserForm(props) {
 	const initEmailMessage =
 		'IExchange US account information: \n Account No : usNo \n Branch No : usBranch \n Bank No: usBank';
 
@@ -105,9 +105,11 @@ function UserForm() {
 	const handlePageMove = () => {
 		if (pageMove === 'convertor') {
 			setPageMove('userDetails');
+			props.setPageMove('userDetails');
 			setTransCode(uuid());
 		} else if (pageMove === 'userDetails') {
 			setPageMove('convertor');
+			props.setPageMove('convertor');
 		}
 	};
 
@@ -122,6 +124,7 @@ function UserForm() {
 
 			if (result === undefined) {
 				setPageMove('submited');
+				props.setPageMove('submited');
 				handleSubmit(detailsGetVals);
 			} else alert('Oops! somthing is wrong with the email you have entered please check again');
 		}
@@ -165,19 +168,23 @@ function UserForm() {
 
 	return (
 		<div className="UserForm">
-			<div className="userFormBullets">
-				<Bullet image={noFee} desc="We take no exchange fees!" />
-				<Bullet image={payment} desc="Easy pay by mobile!" />
-				<Bullet image={international} desc="Use our services even when abroad!" />
-				<Bullet image={wallet} desc="No need to carry cash around!" />
-				<Bullet image={hours} desc="Get your funds in less then 24 hours!" />
-			</div>
 			{showPage()}
 			<div className="payComp">
 				<i className="fa-brands fa-cc-visa " />
 				<i className="fa-brands fa-apple-pay" />
 				<i className="fa-brands fa-google-pay" />
 			</div>
+			{pageMove === 'convertor' ? (
+				<div className="userFormBullets">
+					<Bullet image={noFee} desc="We take no exchange fees!" />
+					<Bullet image={payment} desc="Easy pay by mobile!" />
+					<Bullet image={international} desc="Use our services even when abroad!" />
+					<Bullet image={wallet} desc="No need to carry cash around!" />
+					<Bullet image={hours} desc="Get your funds in less then 24 hours!" />
+				</div>
+			) : (
+				''
+			)}
 			<form ref={params} className="hiddenForm">
 				<input readOnly name="firstName" value={firstName} />
 				<input readOnly name="amount" value={amount} />

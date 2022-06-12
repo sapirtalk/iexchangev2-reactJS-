@@ -12,7 +12,7 @@ export default function Header() {
 	return (
 		<div className="header">
 			<div className="header-top">
-				<p className="phrase">Start Converting Now!</p>
+				<p className="phrase">Fast, Easy & Free</p>
 				<img src={travel} alt="travel" />
 			</div>
 		</div>

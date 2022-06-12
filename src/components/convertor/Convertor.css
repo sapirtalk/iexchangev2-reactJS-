@@ -1,5 +1,5 @@
 .Convertor {
-	margin: 20px 20px;
+	margin: 15px 20px;
 	color: #424242;
 }
 
@@ -111,4 +111,8 @@
 	display: flex;
 	justify-content: flex-end;
 	padding-right: 18px;
+}
+
+.Convertor-heading {
+	font-weight: 700;
 }
