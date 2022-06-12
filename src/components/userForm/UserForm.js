@@ -20,7 +20,7 @@ import HowTo from '../howTo/HowTo';
 
 function UserForm(props) {
 	const initEmailMessage =
-		'IExchange US account information: \n Account No : usNo \n Branch No : usBranch \n Bank No: usBank';
+		'IExchange US account information: Account No : usNo  Branch No : usBranch  Bank No: usBank';
 
 	const [ amount, setAmount ] = useState(0);
 	const [ prefixFrom, setPrefixFrom ] = useState('$');

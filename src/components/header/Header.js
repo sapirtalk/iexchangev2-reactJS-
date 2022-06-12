@@ -13,7 +13,7 @@ export default function Header() {
 		<div className="header">
 			<div className="header-top">
 				<p className="phrase">Fast, Easy & Free</p>
-				<img src={travel} alt="travel" />
+				{/* <img src={travel} alt="travel" /> */}
 			</div>
 		</div>
 	);

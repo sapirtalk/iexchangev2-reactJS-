@@ -1,5 +1,9 @@
 body {
-	background-color: #000033;
+	background: rgb(35, 54, 69);
+	background: -moz-linear-gradient(250deg, rgba(35, 54, 69, 1) 50%, rgba(171, 205, 207, 1) 50%);
+	background: -webkit-linear-gradient(250deg, rgba(35, 54, 69, 1) 50%, rgba(171, 205, 207, 1) 50%);
+	background: linear-gradient(250deg, rgba(35, 54, 69, 1) 50%, rgba(171, 205, 207, 1) 50%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#233645", endColorstr="#abcdcf", GradientType=1);
 	font-family: 'PT Serif Caption', serif;
 	overflow-y: scroll;
 }
