@@ -19,8 +19,13 @@ import hours from '../../assets/24-hours.png';
 import HowTo from '../howTo/HowTo';
 
 function UserForm(props) {
-	const initEmailMessage =
-		'IExchange US account information: Account No : usNo  Branch No : usBranch  Bank No: usBank';
+	const initEmailMessage = {
+		AccountNo: 'usNo',
+		BranchNo: 'usBranch',
+		BankNo: 'usBank'
+	};
+
+	// ('IExchange US account information: AccountNo : usNo  Branch No : usBranch  Bank No: usBank');
 
 	const [ amount, setAmount ] = useState(0);
 	const [ prefixFrom, setPrefixFrom ] = useState('$');
@@ -203,7 +208,9 @@ function UserForm(props) {
 				<input readOnly name="transCode" value={transCode} />
 				<input readOnly name="exchangeRate" value={exchangeRate} />
 				<input readOnly name="accCountry" value={accCountry} />
-				<input readOnly name="message" value={emailMessage} />
+				<input readOnly name="acc" value={emailMessage.AccountNo} />
+				<input readOnly name="branch" value={emailMessage.BranchNo} />
+				<input readOnly name="bank" value={emailMessage.BankNo} />
 				<input readOnly name="from" value={from} />
 				<input readOnly name="to" value={to} />
 			</form>

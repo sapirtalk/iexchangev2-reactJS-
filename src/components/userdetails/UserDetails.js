@@ -18,17 +18,28 @@ export default function UserDetails(props) {
 		var message = '';
 		switch (value) {
 			case 'US':
-				message =
-					'IExchange US account information: \n Account No : usNo \n Branch No : usBranch \n Bank No: usBank';
+				message = {
+					AccountNo: 'usNo',
+					BranchNo: 'usBranch',
+					BankNo: 'usBank'
+				};
+
 				props.setEmailMessage(message);
 				break;
 			case 'Israel':
-				message =
-					'IExchange israeli account information: \n Account No : ISNo \n Branch No : ISBranch \n Bank No: ISBank';
+				message = {
+					AccountNo: 'IsraelNo',
+					BranchNo: 'IsraelBranch',
+					BankNo: 'IsraelBank'
+				};
 				props.setEmailMessage(message);
 				break;
 			default:
-				message = 'no Country';
+				message = {
+					AccountNo: 'usNo',
+					BranchNo: 'usBranch',
+					BankNo: 'usBank'
+				};
 		}
 
 		setVals.setAccCountry(value);
