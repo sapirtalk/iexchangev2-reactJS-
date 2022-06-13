@@ -1,6 +1,6 @@
 import React from 'react';
 import './footer.css';
-import footerLogo from '../../assets/logo.png';
+import footerLogo from '../../assets/Picture1.png';
 
 /**
  * Component for the footer.

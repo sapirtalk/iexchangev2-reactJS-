@@ -5,8 +5,8 @@
 	align-items: center;
 
 	padding: 0.5rem 0rem;
-	background-color: #00def2;
-	color: black;
+	background-color: #002060;
+	color: white;
 	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
 	border-radius: 5px;
 	position: sticky;
@@ -64,9 +64,10 @@
 	right: 25px;
 	transform: translateY(-50%);
 	display: none;
+	color: white;
 }
 .hamburger:hover {
-	color: black;
+	color: white;
 }
 
 @media screen and (max-width: 768px) {
@@ -87,7 +88,7 @@
 
 		width: 100%;
 		height: calc(100vh - 77px);
-		background-color: #345065;
+		background-color: white;
 		border-top: 1px solid black;
 		font-family: 'PT Serif Caption', serif;
 		margin-top: 78px;
@@ -97,7 +98,7 @@
 		margin: 0;
 	}
 	.navigation-menu li a {
-		color: #ffffff;
+		color: black;
 		width: 100%;
 		padding: 0.4rem 0;
 	}

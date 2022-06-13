@@ -1,13 +1,17 @@
 .Convertor {
-	margin: 15px 20px;
-	color: #424242;
+	margin: 0px 20px;
+	/* color: #424242; */
+	background-color: #ffffffae;
+	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
+	border-radius: 5px;
+	padding: 0.5rem 0.5rem;
 }
 
 .amount {
 	align-items: center;
 	display: flex;
 	margin-left: 10px;
-	padding-left: 4%;
+	padding-left: 2%;
 }
 
 .convertor-grid {
@@ -110,9 +114,10 @@
 .toFormBtn {
 	display: flex;
 	justify-content: flex-end;
-	padding-right: 18px;
+	padding-right: 10px;
 }
 
 .Convertor-heading {
 	font-weight: 700;
+	margin-left: 13px;
 }

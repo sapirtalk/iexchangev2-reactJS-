@@ -1,12 +1,12 @@
 .bullet {
 	color: black;
-	background-color: #ffffffae;
+	/* background-color: #ffffffae;
 	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
-	border-radius: 5px;
+	border-radius: 5px; */
 	align-content: center;
 	display: flex;
 	margin-bottom: 10px;
-	border: 1px solid grey;
+	/* border: 1px solid grey; */
 }
 
 .bullet img {

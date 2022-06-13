@@ -13,7 +13,7 @@ export default function Slide(props) {
 			</div>
 			<div className="slide-desc">
 				<p>{props.desc}</p>
-				<p>{props.name}</p>
+				<p style={{ fontWeight: 500 }}>{props.name}</p>
 			</div>
 		</div>
 	);

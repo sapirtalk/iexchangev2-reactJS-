@@ -3,6 +3,8 @@ import './Navbar.css';
 import header_logo from '../../assets/header_logo.png';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toggle from '../../Hooks/Toggle';
+import logo_new from '../../assets/Picture7.png';
+import Header from '../header/Header';
 
 /**
  * Component for the navbar.
@@ -17,9 +19,11 @@ function Navbar() {
 
 	return (
 		<nav className="navigation">
-			<a href="/">
-				<img className="headerLogo" src={header_logo} alt="header_logo" />
-			</a>
+			<div>
+				<a href="/">
+					<img className="headerLogo" src={logo_new} alt="header_logo" />
+				</a>
+			</div>
 			<button onClick={setIsNavExpanded} className="hamburger">
 				<MenuIcon />
 			</button>

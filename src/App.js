@@ -12,7 +12,7 @@ function App() {
 	return (
 		<div className="App">
 			<Navbar />
-			{pageMove === 'convertor' ? <Header /> : ''}
+			{/* {pageMove === 'convertor' ? <Header /> : ''} */}
 			<UserForm setPageMove={setPageMove} />
 			{pageMove === 'convertor' ? (
 				<div className="App-slideShow">

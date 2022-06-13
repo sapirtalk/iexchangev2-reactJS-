@@ -1,7 +1,5 @@
 .header-top {
-	margin: 0px 10px;
-	display: flex;
-	text-align: center;
+	margin: 0px 20px;
 }
 
 /* .header img {
@@ -13,10 +11,12 @@
 
 .phrase {
 	color: white;
-	font-size: 20px;
+	font-size: 10px;
 	margin-bottom: 10px;
 	font-family: 'PT Serif Caption', serif;
 	font-family: 'Roboto', sans-serif;
 	font-family: 'Spline Sans Mono', monospace;
+	margin-top: 0%;
+
 	/* text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5), 2px 2px 2px #000000; */
 }

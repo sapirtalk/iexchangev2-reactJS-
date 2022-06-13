@@ -175,24 +175,24 @@ function UserForm(props) {
 				<i className="fa-brands fa-apple-pay" />
 				<i className="fa-brands fa-google-pay" />
 			</div>
-			{pageMove === 'convertor' ? (
+			{/* {pageMove === 'convertor' ? (
 				<div className="userFormBullets">
-					<Bullet image={noFee} desc="We take no exchange fees!" />
-					<Bullet image={payment} desc="Easy pay by mobile!" />
-					<Bullet image={international} desc="Use our services even when abroad!" />
-					<Bullet image={wallet} desc="No need to carry cash around!" />
-					<Bullet image={hours} desc="Get your funds in less then 24 hours!" />
+					<Bullet image={noFee} desc="We take no exchange fees" />
+					<Bullet image={payment} desc="Easy pay by mobile" />
+					<Bullet image={international} desc="Use our services even when abroad" />
+					<Bullet image={wallet} desc="No need to carry cash around" />
+					<Bullet image={hours} desc="Get your funds in less then 24 hours" />
 				</div>
 			) : (
 				''
-			)}
-			{pageMove === 'convertor' ? (
+			)} */}
+			{/* {pageMove === 'convertor' ? (
 				<div className="userForm-howTo">
 					<HowTo />
 				</div>
 			) : (
 				''
-			)}
+			)} */}
 			<form ref={params} className="hiddenForm">
 				<input readOnly name="firstName" value={firstName} />
 				<input readOnly name="amount" value={amount} />
