@@ -1,3 +1,3 @@
-const Countries = [ 'Israel', 'US' ];
+const Countries = [ 'Israel', 'USA' ];
 
 export default Countries;

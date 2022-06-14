@@ -6,14 +6,16 @@ import emailjs from '@emailjs/browser';
  */
 
 const sendEmail = (params) => {
-	emailjs.sendForm('service_waxtf7t', 'template_m65y3tn', params, 'b6VaHRujA3r8bQOYH').then(
-		(result) => {
-			console.log(result.text);
-		},
-		(error) => {
-			console.log(error.text);
-		}
-	);
+	emailjs
+		.sendForm(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, params, process.env.EMAILJS_API_KEY)
+		.then(
+			(result) => {
+				console.log(result.text);
+			},
+			(error) => {
+				console.log(error.text);
+			}
+		);
 };
 
 export default sendEmail;

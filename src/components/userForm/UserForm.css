@@ -38,18 +38,6 @@
 	border-top: 2px solid black;
 }
 
-.payComp {
-	display: flex;
-	justify-content: flex-end;
-	font-size: 30px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.payComp i {
-	margin-right: 12px;
-}
-
 .userForm-slideShow {
 	border-bottom: 2px solid black;
 	margin: 10px 10px;

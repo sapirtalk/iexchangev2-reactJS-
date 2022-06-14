@@ -57,6 +57,7 @@ export default function UserDetails(props) {
 							size="small"
 							sx={{ width: 160 }}
 							onChange={setVals.setFirstName}
+							value={getVals.firstName}
 						/>
 					</span>
 					<span>
@@ -67,6 +68,7 @@ export default function UserDetails(props) {
 							size="small"
 							sx={{ width: 160 }}
 							onChange={setVals.setLastName}
+							value={getVals.LastName}
 						/>
 					</span>
 				</div>
@@ -78,6 +80,7 @@ export default function UserDetails(props) {
 						label="Email:"
 						size="small"
 						sx={{ width: 250 }}
+						value={getVals.email}
 					/>
 				</div>
 				<div className="mobile">
@@ -90,6 +93,7 @@ export default function UserDetails(props) {
 						size="small"
 						sx={{ width: 250 }}
 						type="number"
+						value={getVals.mobile}
 					/>
 				</div>
 				<div className="countryDrop">
@@ -165,7 +169,7 @@ export default function UserDetails(props) {
 				<div className="approval-checkBox">
 					<FormGroup>
 						<FormControlLabel
-							control={<Checkbox onChange={props.amountsFlag} />}
+							control={<Checkbox onChange={props.amountsFlag} value={getVals.amountsFlag} />}
 							label="I approve the amounts and the exchange rate."
 						/>
 					</FormGroup>
@@ -173,7 +177,7 @@ export default function UserDetails(props) {
 				<div className="approval-checkBox">
 					<FormGroup>
 						<FormControlLabel
-							control={<Checkbox onChange={props.termsFlag} />}
+							control={<Checkbox onChange={props.termsFlag} value={getVals.termsFlag} />}
 							label="i have read the terms & conditions and agree."
 						/>
 					</FormGroup>

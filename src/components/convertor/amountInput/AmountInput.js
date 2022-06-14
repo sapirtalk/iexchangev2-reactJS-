@@ -32,6 +32,7 @@ export default function AmountInput(props) {
 				}}
 				size={props.size}
 				placeholder={props.prefix}
+				value={props.value !== 0 ? props.value : ''}
 			/>
 		</div>
 	);

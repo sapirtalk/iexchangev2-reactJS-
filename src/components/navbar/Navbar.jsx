@@ -1,10 +1,8 @@
 import React from 'react';
 import './Navbar.css';
-import header_logo from '../../assets/header_logo.png';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toggle from '../../Hooks/Toggle';
 import logo_new from '../../assets/Picture7.png';
-import Header from '../header/Header';
 
 /**
  * Component for the navbar.
@@ -14,13 +12,18 @@ import Header from '../header/Header';
  * 
  */
 
-function Navbar() {
+function Navbar(props) {
 	const [ isNavExpanded, setIsNavExpanded ] = Toggle(false);
+
+	const handleLogoClick = () => {
+		props.setPageMove('convertor');
+		localStorage.clear();
+	};
 
 	return (
 		<nav className="navigation">
 			<div>
-				<a href="/">
+				<a href="/" onClick={handleLogoClick}>
 					<img className="headerLogo" src={logo_new} alt="header_logo" />
 				</a>
 			</div>
@@ -30,7 +33,9 @@ function Navbar() {
 			<div className={isNavExpanded ? 'navigation-menu expanded' : 'navigation-menu'}>
 				<ul>
 					<li>
-						<a href="/">Home</a>
+						<a href="/" onClick={handleLogoClick}>
+							Home
+						</a>
 					</li>
 					<li>
 						<a href="/about">About</a>

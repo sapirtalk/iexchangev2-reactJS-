@@ -24,7 +24,8 @@ export default function Convertor(props) {
 	const getFormVals = props.getFormVals;
 	const setFormVals = props.setFormVals;
 	const [ isApi, setApi ] = Toggle(false);
-	const [ error, setError ] = Toggle(false);
+	const [ errorAmount, setErrorAmount ] = Toggle(false);
+	const [ errorCurr, setErrorCurr ] = Toggle(false);
 
 	/**
 	 * handeling the switch of currency all around Convertor component.
@@ -46,13 +47,18 @@ export default function Convertor(props) {
 	 */
 	const handleContinue = () => {
 		if (getFormVals.amount < 100 && getFormVals.from === 'USD') {
-			if (!error) setError();
+			if (!errorAmount) setErrorAmount();
 			return;
 		} else if (getFormVals.outcome < 100 && getFormVals.from === 'ILS') {
-			if (!error) setError();
+			if (!errorAmount) setErrorAmount();
+			return;
+		} else if (getFormVals.from === getFormVals.to) {
+			if (!errorCurr) setErrorCurr();
 			return;
 		}
-		if (error) setError();
+
+		if (errorCurr) setErrorCurr();
+		if (errorAmount) setErrorAmount();
 		props.continue();
 	};
 	/**
@@ -81,6 +87,7 @@ export default function Convertor(props) {
 				const from = getFormVals.from;
 				const res = await axios.get(`https://api.exchangerate.host/latest?base=${from}&symbols=${to}&places=3`);
 				const dataKeys = Object.keys(res.data.rates);
+				console.log(res);
 				const newData = dataKeys.map((eachId) => {
 					return res.data.rates[eachId];
 				});
@@ -116,6 +123,7 @@ export default function Convertor(props) {
 					initialPre="$"
 					label="Amount:"
 					size="small"
+					value={getFormVals.amount}
 				/>
 			</div>
 			<div className="convertor-grid">
@@ -161,10 +169,15 @@ export default function Convertor(props) {
 					</div>
 				</div>
 
-				{error ? (
-					<p style={{ color: 'red', fontSize: '13px' }}>Sorry! we can only exchange $100 or more</p>
+				{errorAmount ? (
+					<p style={{ color: 'red', fontSize: '12px' }}>Sorry! we can only exchange $100 or more</p>
 				) : (
-					<p />
+					''
+				)}
+				{errorCurr ? (
+					<p style={{ color: 'red', fontSize: '12px' }}>You cant exhcange to the same Currency</p>
+				) : (
+					''
 				)}
 				<div className="toFormBtn">
 					<button className="continue" onClick={handleContinue}>

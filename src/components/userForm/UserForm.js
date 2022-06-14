@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import useStoragetState from '../../Hooks/useStorageState';
 import './UserForm.css';
 import Convertor from '../convertor/Convertor.js';
 import UserDetails from '../userdetails/UserDetails';
@@ -10,13 +11,6 @@ import goodSubmit from '../../functions/goodSubmit';
 import { v4 as uuid } from 'uuid';
 import SubmitedScreen from '../submitedScreen/SubmitedScreen';
 import sendEmail from '../../functions/emailHandler';
-import Bullet from '../../components/bullets/Bullet';
-import noFee from '../../assets/no-fee.png';
-import payment from '../../assets/mobile-payment.png';
-import international from '../../assets/international.png';
-import wallet from '../../assets/wallet.png';
-import hours from '../../assets/24-hours.png';
-import HowTo from '../howTo/HowTo';
 
 function UserForm(props) {
 	const initEmailMessage = {
@@ -25,31 +19,27 @@ function UserForm(props) {
 		BankNo: 'usBank'
 	};
 
-	// ('IExchange US account information: AccountNo : usNo  Branch No : usBranch  Bank No: usBank');
-
-	const [ amount, setAmount ] = useState(0);
-	const [ prefixFrom, setPrefixFrom ] = useState('$');
-	const [ prefixTo, setPrefixTo ] = useState('₪');
-	const [ to, setTo ] = useState('ILS');
-	const [ from, setFrom ] = useState('USD');
-	const [ exchangeRate, setExchangeRate ] = useState(0);
-	const [ outcome, setOutcome ] = useState(0);
-	const [ firstName, setFirstName ] = UseInputState('');
-	const [ LastName, setLastName ] = UseInputState('');
-	const [ email, setEmail ] = UseInputState('');
-	const [ accCountry, setAccCountry ] = useState('US');
-	const [ toCountry, setToCountry ] = useState('Israel');
-	const [ idPic, setIdPic ] = HandleFileInput(null);
-	const [ selfie, setSelfie ] = HandleFileInput(null);
-	const [ mobile, setMobile ] = UseInputState(null);
+	const [ amount, setAmount ] = useStoragetState('amount', '');
+	const [ prefixFrom, setPrefixFrom ] = useStoragetState('prefixFrom', '$');
+	const [ prefixTo, setPrefixTo ] = useStoragetState('prefixTo', '₪');
+	const [ to, setTo ] = useStoragetState('to', 'ILS');
+	const [ from, setFrom ] = useStoragetState('from', 'USD');
+	const [ exchangeRate, setExchangeRate ] = useStoragetState('exchangeRate', 0);
+	const [ outcome, setOutcome ] = useStoragetState('outcome', 0);
+	const [ firstName, setFirstName ] = UseInputState('firstName', '');
+	const [ LastName, setLastName ] = UseInputState('lastName', '');
+	const [ email, setEmail ] = UseInputState('email', '');
+	const [ accCountry, setAccCountry ] = useStoragetState('accCountry', 'USA');
+	const [ toCountry, setToCountry ] = useStoragetState('toCountry', 'Israel');
+	const [ idPic, setIdPic ] = HandleFileInput(undefined);
+	const [ selfie, setSelfie ] = HandleFileInput(undefined);
+	const [ mobile, setMobile ] = UseInputState('mobile', undefined);
 	const [ recapcha, setRecapcha ] = Toggle(false);
 	const [ amountsFlag, setAmountsFlag ] = Toggle(false);
 	const [ termsFlag, setTermsFlag ] = Toggle(false);
-	const [ pageMove, setPageMove ] = useState('convertor');
 	const [ emailMessage, setEmailMessage ] = useState(initEmailMessage);
-	const [ transCode, setTransCode ] = useState('');
-	const [ mobilePrefix, setMobilePrefix ] = useState('+972');
-
+	const [ transCode, setTransCode ] = useStoragetState('transCode', '');
+	const [ mobilePrefix, setMobilePrefix ] = useStoragetState('mobilePrefix', '+972');
 	const issueDate = new Date();
 	const recaptchaRef = React.createRef();
 	const params = useRef();
@@ -109,12 +99,10 @@ function UserForm(props) {
 	};
 
 	const handlePageMove = () => {
-		if (pageMove === 'convertor') {
-			setPageMove('userDetails');
+		if (props.pageMove === 'convertor') {
 			props.setPageMove('userDetails');
 			setTransCode(uuid());
-		} else if (pageMove === 'userDetails') {
-			setPageMove('convertor');
+		} else if (props.pageMove === 'userDetails') {
 			props.setPageMove('convertor');
 		}
 	};
@@ -129,9 +117,9 @@ function UserForm(props) {
 			console.log(result);
 
 			if (result === undefined) {
-				setPageMove('submited');
 				props.setPageMove('submited');
 				handleSubmit(detailsGetVals);
+				localStorage.clear();
 			} else alert('Oops! somthing is wrong with the email you have entered please check again');
 		}
 	};
@@ -141,7 +129,7 @@ function UserForm(props) {
 	};
 
 	const showPage = () => {
-		switch (pageMove) {
+		switch (props.pageMove) {
 			case 'convertor':
 				return (
 					<Convertor setFormVals={convertSetVals} getFormVals={convertGetVals} continue={handlePageMove} />
@@ -175,29 +163,6 @@ function UserForm(props) {
 	return (
 		<div className="UserForm">
 			{showPage()}
-			<div className="payComp">
-				<i className="fa-brands fa-cc-visa " />
-				<i className="fa-brands fa-apple-pay" />
-				<i className="fa-brands fa-google-pay" />
-			</div>
-			{/* {pageMove === 'convertor' ? (
-				<div className="userFormBullets">
-					<Bullet image={noFee} desc="We take no exchange fees" />
-					<Bullet image={payment} desc="Easy pay by mobile" />
-					<Bullet image={international} desc="Use our services even when abroad" />
-					<Bullet image={wallet} desc="No need to carry cash around" />
-					<Bullet image={hours} desc="Get your funds in less then 24 hours" />
-				</div>
-			) : (
-				''
-			)} */}
-			{/* {pageMove === 'convertor' ? (
-				<div className="userForm-howTo">
-					<HowTo />
-				</div>
-			) : (
-				''
-			)} */}
 			<form ref={params} className="hiddenForm">
 				<input readOnly name="firstName" value={firstName} />
 				<input readOnly name="amount" value={amount} />
