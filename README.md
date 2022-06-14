@@ -7,7 +7,9 @@ Updates:
           *Input "Amount" in Convertor will now keep the previous inputed amount when user press "Back" button.
           *Now using localStorage, on page refresh the user will start from the same place he was before refresh.
             NOT INCLUDED: File uploads, checkBoxes.
-          *Pressing the site logo will take the user to the main page and refresh.  
+          *Pressing the site logo will take the user to the main page and refresh. 
+          *API and services keys are now secured.
+          * 
 
 
 

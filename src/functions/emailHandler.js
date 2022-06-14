@@ -7,7 +7,12 @@ import emailjs from '@emailjs/browser';
 
 const sendEmail = (params) => {
 	emailjs
-		.sendForm(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, params, process.env.EMAILJS_API_KEY)
+		.sendForm(
+			process.env.REACT_APP_EMAILJS_SERVICE_ID,
+			process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+			params,
+			process.env.REACT_APP_EMAILJS_API_KEY
+		)
 		.then(
 			(result) => {
 				console.log(result.text);
