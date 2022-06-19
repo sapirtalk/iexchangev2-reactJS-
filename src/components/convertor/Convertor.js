@@ -85,12 +85,14 @@ export default function Convertor(props) {
 			async function getData() {
 				const to = getFormVals.to;
 				const from = getFormVals.from;
-				const res = await axios.get(`https://api.exchangerate.host/latest?base=${from}&symbols=${to}&places=3`);
+				const res = await axios.get(
+					`https://${process.env.REACT_APP_RATE_KEY}/api/exchangerate/base=${from}/to=${to}`
+				);
 				const dataKeys = Object.keys(res.data.rates);
-				console.log(res);
 				const newData = dataKeys.map((eachId) => {
 					return res.data.rates[eachId];
 				});
+				console.log(newData[0]);
 				setFormVals.setExchangeRate(newData[0]);
 			}
 			getData();
