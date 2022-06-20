@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
 import UserForm from './components/userForm/UserForm';
@@ -16,8 +16,10 @@ function App() {
 			{/* {pageMove === 'convertor' ? <Header /> : ''} */}
 			<UserForm setPageMove={setPageMove} pageMove={pageMove} />
 			{pageMove === 'convertor' ? (
-				<div className="App-slideShow">
-					<SlideShow />
+				<div>
+					<div className="App-slideShow">
+						<SlideShow />
+					</div>
 				</div>
 			) : (
 				''

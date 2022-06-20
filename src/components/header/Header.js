@@ -1,5 +1,4 @@
 import React from 'react';
-import travel from '../../assets/travel.png';
 import './Header.css';
 
 /**
@@ -12,8 +11,8 @@ export default function Header() {
 	return (
 		<div className="header">
 			<div className="header-top">
-				<p className="phrase">Fast, Easy & Free</p>
-				{/* <img src={travel} alt="travel" /> */}
+				<p className="phrase">get your card today</p>
+				<p className="phrase">Travel cheap & pay easly</p>
 			</div>
 		</div>
 	);

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import useStoragetState from '../../Hooks/useStorageState';
 import './UserForm.css';
 import Convertor from '../convertor/Convertor.js';
@@ -42,7 +42,7 @@ function UserForm(props) {
 	const [ mobilePrefix, setMobilePrefix ] = useStoragetState('mobilePrefix', '+972');
 	const issueDate = new Date();
 	const recaptchaRef = React.createRef();
-	const params = useRef();
+
 	const convertSetVals = {
 		setAmount,
 		setOutcome,
@@ -111,21 +111,30 @@ function UserForm(props) {
 		e.preventDefault();
 		recaptchaRef.current.execute();
 		console.log(detailsGetVals);
+		const params = {
+			firstName: firstName,
+			email: email,
+			transCode: transCode
+		};
 
 		if (goodSubmit(detailsGetVals)) {
-			var result = sendEmail(params.current);
-			console.log(result);
+			sendEmail(params);
+			// var result = sendEmail(params.current);
+			// console.log(result);
 
-			if (result === undefined) {
-				props.setPageMove('submited');
-				handleSubmit(detailsGetVals);
-				localStorage.clear();
-			} else alert('Oops! somthing is wrong with the email you have entered please check again');
+			props.setPageMove('submited');
+			handleSubmit(detailsGetVals);
+			localStorage.clear();
 		}
 	};
 
 	const resendEmail = () => {
-		sendEmail(params.current);
+		const params = {
+			firstName: firstName,
+			email: email,
+			transCode: transCode
+		};
+		sendEmail(params);
 	};
 
 	const showPage = () => {
@@ -160,27 +169,7 @@ function UserForm(props) {
 		}
 	};
 
-	return (
-		<div className="UserForm">
-			{showPage()}
-			<form ref={params} className="hiddenForm">
-				<input readOnly name="firstName" value={firstName} />
-				<input readOnly name="amount" value={amount} />
-				<input readOnly name="outcome" value={outcome} />
-				<input readOnly name="prefixFrom" value={prefixFrom} />
-				<input readOnly name="prefixTo" value={prefixTo} />
-				<input readOnly name="email" value={email} />
-				<input readOnly name="transCode" value={transCode} />
-				<input readOnly name="exchangeRate" value={exchangeRate} />
-				<input readOnly name="accCountry" value={accCountry} />
-				<input readOnly name="acc" value={emailMessage.AccountNo} />
-				<input readOnly name="branch" value={emailMessage.BranchNo} />
-				<input readOnly name="bank" value={emailMessage.BankNo} />
-				<input readOnly name="from" value={from} />
-				<input readOnly name="to" value={to} />
-			</form>
-		</div>
-	);
+	return <div className="UserForm">{showPage()}</div>;
 }
 
 export default UserForm;
