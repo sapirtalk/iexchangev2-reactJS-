@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
 import UserForm from './components/userForm/UserForm';
 import './App.css';
 import SlideShow from './components/slideShow/SlideShow';
 import useStorageState from './Hooks/useStorageState';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize(process.env.REACT_APP_GOOGLE_TRACKING_ID);
 
 function App() {
 	const [ pageMove, setPageMove ] = useStorageState('pageMove', 'convertor');
 	console.log(pageMove);
+
+	useEffect(() => {
+		ReactGA.pageview(window.location.pathname + window.location.search);
+	});
 
 	return (
 		<div className="App">
@@ -25,19 +32,6 @@ function App() {
 				''
 			)}
 			<Footer />
-			<script
-				dangerouslySetInnerHTML={{
-					__html: `
-         (function(c,l,a,r,i,t,y){
-             c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-             t=l.createElement(r);
-             t.async=1;
-             t.src="https://www.clarity.ms/tag/"+i;
-             y=l.getElementsByTagName(r)[0];
-             y.parentNode.insertBefore(t,y);
-         })(window, document, "clarity", "script", "cfpdpcji9w");`
-				}}
-			/>;
 		</div>
 	);
 }
