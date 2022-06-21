@@ -1,0 +1,22 @@
+.introChallenges h1 {
+	font-size: 25px;
+}
+
+.introChallenges text {
+	font-size: 18px;
+	margin: 10px 0;
+}
+
+.introChallenges {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.introChallenges p {
+	margin: 5px 5px;
+}
+
+.introChallenges img {
+	height: 10rem;
+	width: auto;
+}

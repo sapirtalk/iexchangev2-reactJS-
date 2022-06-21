@@ -1,0 +1,8 @@
+.transDetails {
+	margin: 0px 20px;
+	margin-bottom: 40px;
+	background-color: #ffffffae;
+	box-shadow: 1px 3px 3px 3px rgba(9, 9, 9, 0.23);
+	border-radius: 5px;
+	padding: 0.2rem 0.5rem;
+}

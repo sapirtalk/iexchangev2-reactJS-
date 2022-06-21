@@ -10,10 +10,7 @@ import './Header.css';
 export default function Header() {
 	return (
 		<div className="header">
-			<div className="header-top">
-				<p className="phrase">get your card today</p>
-				<p className="phrase">Travel cheap & pay easly</p>
-			</div>
+			<h1 className="phrase">Pay like home while you're abroad</h1>
 		</div>
 	);
 }

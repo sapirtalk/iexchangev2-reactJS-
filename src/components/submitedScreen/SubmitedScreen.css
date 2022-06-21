@@ -34,3 +34,24 @@
 	width: auto;
 	margin: 6px 8rem;
 }
+
+.submited-noEmail p {
+	margin: 0 0;
+}
+
+.submited-top img {
+	height: 50px;
+	width: auto;
+}
+
+.submited-top {
+	margin-bottom: 10px;
+}
+
+.submited-noEmail.check {
+	font-weight: 700;
+}
+
+.details.check {
+	font-weight: 700;
+}

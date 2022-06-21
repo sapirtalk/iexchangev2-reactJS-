@@ -15,6 +15,11 @@ const slidesProps = [
 		image: star,
 		desc: '"Was waiting for somthing like this"',
 		name: 'Roy'
+	},
+	{
+		image: star,
+		desc: '"fast, smart & easy. recommended"',
+		name: 'Adam'
 	}
 ];
 

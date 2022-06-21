@@ -1,8 +1,8 @@
 .Convertor {
 	margin: 0px 20px;
-	/* color: #424242; */
+	margin-bottom: 40px;
 	background-color: #ffffffae;
-	box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
+	box-shadow: 1px 3px 3px 3px rgba(9, 9, 9, 0.23);
 	border-radius: 5px;
 	padding: 0.5rem 0.5rem;
 }
@@ -89,13 +89,13 @@
 }
 
 .continue {
-	box-shadow: inset 0px 0px 6px 1px #97c4fe;
-	background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	box-shadow: inset 0px 0px 6px 1px #002060;
+	background: linear-gradient(to bottom, #002060 5%, #195bb6 100%);
 	border-radius: 6px;
-	border: 2px solid #337fed;
+	border: 2px solid #002060;
 	display: inline-block;
 	cursor: pointer;
-	color: #ffffff;
+	color: white;
 	font-family: Arial;
 	font-size: 15px;
 	font-weight: bold;

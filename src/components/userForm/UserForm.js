@@ -11,14 +11,21 @@ import goodSubmit from '../../functions/goodSubmit';
 import { v4 as uuid } from 'uuid';
 import SubmitedScreen from '../submitedScreen/SubmitedScreen';
 import sendEmail from '../../functions/emailHandler';
+import useBankDetailsState from '../../Hooks/useBankDetailsState';
+
+const USABankDetials = {
+	AccountNo: 'usNo',
+	BranchNo: 'usBranch',
+	BankNo: 'usBank'
+};
+
+const IsraelBankDetials = {
+	AccountNo: 'IsraelNo',
+	BranchNo: 'IsraelBranch',
+	BankNo: 'israelBank'
+};
 
 function UserForm(props) {
-	const initEmailMessage = {
-		AccountNo: 'usNo',
-		BranchNo: 'usBranch',
-		BankNo: 'usBank'
-	};
-
 	const [ amount, setAmount ] = useStoragetState('amount', '');
 	const [ prefixFrom, setPrefixFrom ] = useStoragetState('prefixFrom', '$');
 	const [ prefixTo, setPrefixTo ] = useStoragetState('prefixTo', '₪');
@@ -37,7 +44,7 @@ function UserForm(props) {
 	const [ recapcha, setRecapcha ] = Toggle(false);
 	const [ amountsFlag, setAmountsFlag ] = Toggle(false);
 	const [ termsFlag, setTermsFlag ] = Toggle(false);
-	const [ emailMessage, setEmailMessage ] = useState(initEmailMessage);
+	const [ bankDetails, setBankDetails ] = useBankDetailsState('USA', USABankDetials);
 	const [ transCode, setTransCode ] = useStoragetState('transCode', '');
 	const [ mobilePrefix, setMobilePrefix ] = useStoragetState('mobilePrefix', '+972');
 	const issueDate = new Date();
@@ -83,7 +90,6 @@ function UserForm(props) {
 		amountsFlag,
 		termsFlag,
 		transCode,
-		emailMessage,
 		mobilePrefix
 	};
 	const detailsSetVals = {
@@ -96,6 +102,20 @@ function UserForm(props) {
 		setSelfie,
 		setMobile,
 		setMobilePrefix
+	};
+
+	const submitedDetails = {
+		amount,
+		outcome,
+		exchangeRate,
+		from,
+		to,
+		prefixFrom,
+		prefixTo,
+		email,
+		firstName,
+		accCountry,
+		bankDetails
 	};
 
 	const handlePageMove = () => {
@@ -119,8 +139,17 @@ function UserForm(props) {
 
 		if (goodSubmit(detailsGetVals)) {
 			sendEmail(params);
-			// var result = sendEmail(params.current);
-			// console.log(result);
+
+			switch (accCountry) {
+				case 'USA':
+					setBankDetails(USABankDetials);
+					break;
+				case 'Israel':
+					setBankDetails(IsraelBankDetials);
+					break;
+				default:
+					setBankDetails(USABankDetials);
+			}
 
 			props.setPageMove('submited');
 			handleSubmit(detailsGetVals);
@@ -153,7 +182,6 @@ function UserForm(props) {
 						recaptchaRef={recaptchaRef}
 						amountsFlag={setAmountsFlag}
 						termsFlag={setTermsFlag}
-						setEmailMessage={setEmailMessage}
 						submit={submitHandler}
 					/>
 				);
@@ -163,9 +191,7 @@ function UserForm(props) {
 				);
 
 			case 'submited':
-				return (
-					<SubmitedScreen transCode={transCode} resend={resendEmail} toEmail={email} firstName={firstName} />
-				);
+				return <SubmitedScreen getVals={submitedDetails} resend={resendEmail} />;
 		}
 	};
 

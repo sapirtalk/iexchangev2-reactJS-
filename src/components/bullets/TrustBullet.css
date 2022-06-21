@@ -1,0 +1,19 @@
+.trustBullet {
+	display: flex;
+	flex-direction: column;
+	margin: 0px 0px;
+}
+
+.trustBullet i {
+	font-size: 25px;
+	color: #002060;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.trustBullet p {
+	font-size: 13px;
+	font-weight: 700;
+	margin: 0px 15px;
+	padding-left: 14px;
+}

@@ -1,3 +1,15 @@
-.home-slideShow {
-	margin: 10px 10px;
+.home-main {
+	animation: Anim 2s ease 0s 1 normal none;
+}
+
+@keyframes Anim {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
