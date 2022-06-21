@@ -27,6 +27,7 @@ export default function Convertor(props) {
 	const [ isApi, setApi ] = Toggle(false);
 	const [ errorAmount, setErrorAmount ] = Toggle(false);
 	const [ errorCurr, setErrorCurr ] = Toggle(false);
+	const [ errorAmountRoof, setErrorAmountRoof ] = Toggle(false);
 	const GAEventsTracker = useGAEventsTracker('Buttons');
 	/**
 	 * handeling the switch of currency all around Convertor component.
@@ -53,11 +54,18 @@ export default function Convertor(props) {
 		} else if (getFormVals.outcome < 100 && getFormVals.from === 'ILS') {
 			if (!errorAmount) setErrorAmount();
 			return;
+		} else if (getFormVals.amount > 2500 && getFormVals.from === 'USD') {
+			if (!errorAmountRoof) setErrorAmountRoof();
+			return;
+		} else if (getFormVals.outcome > 2500 && getFormVals.from === 'ILS') {
+			if (!errorAmountRoof) setErrorAmountRoof();
+			return;
 		} else if (getFormVals.from === getFormVals.to) {
 			if (!errorCurr) setErrorCurr();
 			return;
 		}
 
+		if (errorAmountRoof) setErrorAmountRoof();
 		if (errorCurr) setErrorCurr();
 		if (errorAmount) setErrorAmount();
 
@@ -173,6 +181,11 @@ export default function Convertor(props) {
 						</p>
 					</div>
 				</div>
+				{errorAmountRoof ? (
+					<p style={{ color: 'red', fontSize: '12px' }}>Sorry! we can only exchange up to 2500$</p>
+				) : (
+					''
+				)}
 
 				{errorAmount ? (
 					<p style={{ color: 'red', fontSize: '12px' }}>Sorry! we can only exchange $100 or more</p>
