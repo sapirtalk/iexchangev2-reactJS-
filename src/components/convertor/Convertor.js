@@ -97,7 +97,7 @@ export default function Convertor(props) {
 			}
 			getData();
 		},
-		[ isApi ]
+		[ isApi, getFormVals.from, getFormVals.to, setFormVals ]
 	);
 	useEffect(
 		() => {
@@ -112,7 +112,7 @@ export default function Convertor(props) {
 			}
 			updateBySwitch();
 		},
-		[ getFormVals.exchangeRate ]
+		[ getFormVals.exchangeRate, getFormVals.amount, setFormVals ]
 	);
 
 	return (
