@@ -5,6 +5,7 @@ import './Convertor.css';
 import Toggle from '../../Hooks/Toggle';
 import axios from 'axios';
 import { findPrefix } from './Currencies';
+import { useGAEventsTracker } from '../../functions/useGAEventsTracker';
 
 /**
  * Component for the convertor.
@@ -26,7 +27,7 @@ export default function Convertor(props) {
 	const [ isApi, setApi ] = Toggle(false);
 	const [ errorAmount, setErrorAmount ] = Toggle(false);
 	const [ errorCurr, setErrorCurr ] = Toggle(false);
-
+	const GAEventsTracker = useGAEventsTracker('Buttons');
 	/**
 	 * handeling the switch of currency all around Convertor component.
 	 * switching currency prefixes, exchange rate and calculated outcome, also reruns the getData for API
@@ -45,7 +46,7 @@ export default function Convertor(props) {
 	/**
 	 * triggers continue from the continue button, will trigger error if terms not met
 	 */
-	const handleContinue = () => {
+	const handleContinue = (e) => {
 		if (getFormVals.amount < 100 && getFormVals.from === 'USD') {
 			if (!errorAmount) setErrorAmount();
 			return;
@@ -59,7 +60,9 @@ export default function Convertor(props) {
 
 		if (errorCurr) setErrorCurr();
 		if (errorAmount) setErrorAmount();
+
 		props.continue();
+		GAEventsTracker('Button pressed', 'Get started');
 	};
 	/**
 	 * handeling the change of input amount, calculating the according outcome and changing its value
