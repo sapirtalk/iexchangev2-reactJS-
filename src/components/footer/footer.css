@@ -34,9 +34,16 @@
 	font-size: 18px;
 }
 
-.footer-text a {
+.footer-text button {
 	color: white;
 	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	text-decoration: underline;
+}
+
+.footer-text button:active {
+	color: blue;
 }
 
 .footer-contact {
@@ -46,4 +53,10 @@
 .footer-text p {
 	border-left: solid 1px white;
 	padding-left: 8px;
+}
+
+.copied-alert {
+	position: fixed;
+	bottom: 7%;
+	right: 25%;
 }

@@ -1,14 +1,14 @@
 import React from 'react';
-import Footer from './components/footer/Footer';
-import Navbar from './components/navbar/Navbar';
-import UserForm from './components/userForm/UserForm';
+import Footer from '../components/footer/Footer';
+import Navbar from '../components/navbar/Navbar';
+import UserForm from '../components/userForm/UserForm';
 import './Home.css';
-import useStorageState from './Hooks/useStorageState';
-import ReactGA from 'react-ga';
-import Intro from './components/intro/Intro';
-import Header from './components/header/Header';
+import useStorageState from '../Hooks/useStorageState';
+// import ReactGA from 'react-ga';
+import Intro from '../components/intro/Intro';
+import Header from '../components/header/Header';
 
-ReactGA.initialize(process.env.REACT_APP_GOOGLE_TRACKING_ID);
+// ReactGA.initialize(process.env.REACT_APP_GOOGLE_TRACKING_ID);
 
 function Home() {
 	const [ pageMove, setPageMove ] = useStorageState('pageMove', 'convertor');

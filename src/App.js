@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Home from './Home';
+import Home from './pages/Home';
 import ReactGA from 'react-ga';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
@@ -16,6 +16,7 @@ function App() {
 		<Routes>
 			<Route exact path="/home" element={<Home />} />
 			<Route exact path="/" element={<Navigate to="/home" />} />
+			{/* <Route exact path="/instructions" element={} />} /> */}
 		</Routes>
 	);
 }
