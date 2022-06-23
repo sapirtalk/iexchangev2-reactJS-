@@ -7,15 +7,15 @@ const IntroChallenges = () => {
 			<h1>Financial challenges require social solutions</h1>
 			<img src={globe} alt="globe" />
 			<div>
-				<text>
+				<span>
 					Imagine a world where people can exchange currencies without using banks. We could trade using the
 					true value of our money without paying excessive fees and commissions.
-				</text>
+				</span>
 				<p>...</p>
-				<text>
+				<span>
 					IExchange connects travelers from all over the world with currency exchange needs and helps them in
 					getting the most out of their money.
-				</text>
+				</span>
 			</div>
 		</div>
 	);

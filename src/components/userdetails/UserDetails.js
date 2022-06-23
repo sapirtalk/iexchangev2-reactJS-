@@ -14,7 +14,7 @@ export default function UserDetails(props) {
 	const getVals = props.getVals;
 	const setVals = props.setVals;
 
-	const handleAccCountryChange = (value) => {
+	const recieveBankDetails = (value) => {
 		var message = '';
 		switch (value) {
 			case 'US':
@@ -23,26 +23,29 @@ export default function UserDetails(props) {
 					BranchNo: 'usBranch',
 					BankNo: 'usBank'
 				};
-
-				props.setEmailMessage(message);
-				break;
+				return message;
 			case 'Israel':
 				message = {
 					AccountNo: 'IsraelNo',
 					BranchNo: 'IsraelBranch',
 					BankNo: 'IsraelBank'
 				};
-				props.setEmailMessage(message);
-				break;
+				return message;
 			default:
 				message = {
 					AccountNo: 'usNo',
 					BranchNo: 'usBranch',
 					BankNo: 'usBank'
 				};
+				return message;
 		}
+	};
 
+	const handleAccCountryChange = (value) => {
 		setVals.setAccCountry(value);
+		console.log(recieveBankDetails(value));
+		const newBankDetails = recieveBankDetails(value);
+		setVals.setBankDetails(newBankDetails);
 	};
 
 	return (

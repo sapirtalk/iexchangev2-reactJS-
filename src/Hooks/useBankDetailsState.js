@@ -1,13 +1,19 @@
 import { useState, useEffect } from 'react';
 import getStorageValue from '../functions/getStorageValue';
 
-const useBankDetailsState = (key, defaultValue) => {
+const defaultMessage = {
+	AccountNo: 'usNo',
+	BranchNo: 'usBranch',
+	BankNo: 'usBank'
+};
+
+const useBankDetailsState = (key = 'USA', defaultValue = defaultMessage) => {
 	const [ value, setValue ] = useState(() => {
 		return getStorageValue(key, defaultValue);
 	});
 
-	const handleChange = () => {
-		setValue(defaultValue);
+	const handleChange = (newValue) => {
+		setValue(newValue);
 	};
 
 	useEffect(

@@ -13,18 +13,6 @@ import SubmitedScreen from '../submitedScreen/SubmitedScreen';
 import sendEmail from '../../functions/emailHandler';
 import useBankDetailsState from '../../Hooks/useBankDetailsState';
 
-const USABankDetials = {
-	AccountNo: 'usNo',
-	BranchNo: 'usBranch',
-	BankNo: 'usBank'
-};
-
-const IsraelBankDetials = {
-	AccountNo: 'IsraelNo',
-	BranchNo: 'IsraelBranch',
-	BankNo: 'israelBank'
-};
-
 function UserForm(props) {
 	const [ amount, setAmount ] = useStoragetState('amount', '');
 	const [ prefixFrom, setPrefixFrom ] = useStoragetState('prefixFrom', '$');
@@ -44,7 +32,7 @@ function UserForm(props) {
 	const [ recapcha, setRecapcha ] = Toggle(false);
 	const [ amountsFlag, setAmountsFlag ] = Toggle(false);
 	const [ termsFlag, setTermsFlag ] = Toggle(false);
-	const [ bankDetails, setBankDetails ] = useBankDetailsState('USA', USABankDetials);
+	const [ bankDetails, setBankDetails ] = useBankDetailsState();
 	const [ transCode, setTransCode ] = useStoragetState('transCode', '');
 	const [ mobilePrefix, setMobilePrefix ] = useStoragetState('mobilePrefix', '+972');
 	const issueDate = new Date();
@@ -90,7 +78,8 @@ function UserForm(props) {
 		amountsFlag,
 		termsFlag,
 		transCode,
-		mobilePrefix
+		mobilePrefix,
+		bankDetails
 	};
 	const detailsSetVals = {
 		setFirstName,
@@ -101,7 +90,8 @@ function UserForm(props) {
 		setIdPic,
 		setSelfie,
 		setMobile,
-		setMobilePrefix
+		setMobilePrefix,
+		setBankDetails
 	};
 
 	const submitedDetails = {
@@ -139,17 +129,6 @@ function UserForm(props) {
 
 		if (goodSubmit(detailsGetVals)) {
 			sendEmail(params);
-
-			switch (accCountry) {
-				case 'USA':
-					setBankDetails(USABankDetials);
-					break;
-				case 'Israel':
-					setBankDetails(IsraelBankDetials);
-					break;
-				default:
-					setBankDetails(USABankDetials);
-			}
 
 			props.setPageMove('submited');
 			handleSubmit(detailsGetVals);
