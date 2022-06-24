@@ -16,7 +16,7 @@ export default function Step(props) {
 				</div>
 			</div>
 			<div className="step-desc-container">
-				<p>desc</p>
+				<span>{props.body}</span>
 			</div>
 		</div>
 	);

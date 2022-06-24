@@ -1,26 +1,20 @@
 import React from 'react';
-import Footer from '../components/footer/Footer';
-import Navbar from '../components/navbar/Navbar';
 import UserForm from '../components/userForm/UserForm';
 import './Home.css';
-import useStorageState from '../Hooks/useStorageState';
-// import ReactGA from 'react-ga';
+
+import ReactGA from 'react-ga';
 import Intro from '../components/intro/Intro';
 import Header from '../components/header/Header';
 
-// ReactGA.initialize(process.env.REACT_APP_GOOGLE_TRACKING_ID);
+ReactGA.initialize(process.env.REACT_APP_GOOGLE_TRACKING_ID);
 
-function Home() {
-	const [ pageMove, setPageMove ] = useStorageState('pageMove', 'convertor');
-	console.log(pageMove);
-
+function Home(props) {
 	return (
 		<div className="Home">
-			<Navbar setPageMove={setPageMove} />
 			<div className="home-main">
-				{pageMove === 'convertor' ? <Header /> : ''}
-				<UserForm setPageMove={setPageMove} pageMove={pageMove} />
-				{pageMove === 'convertor' ? (
+				{props.pageMove === 'convertor' ? <Header /> : ''}
+				<UserForm setPageMove={props.setPageMove} pageMove={props.pageMove} />
+				{props.pageMove === 'convertor' ? (
 					<div>
 						<div className="introduction">
 							<Intro />
@@ -30,7 +24,6 @@ function Home() {
 					''
 				)}
 			</div>
-			<Footer />
 		</div>
 	);
 }

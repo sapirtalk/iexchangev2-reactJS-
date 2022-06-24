@@ -85,22 +85,23 @@
 		top: 60px;
 		left: 0;
 		flex-direction: column;
-
 		width: 100%;
 		height: calc(100vh - 77px);
-		background-color: white;
-		border-top: 1px solid black;
-		font-family: 'PT Serif Caption', serif;
-		margin-top: 78px;
+		background-color: #002060;
+		margin-top: 60px;
+		animation: navBarAnim 0.5s ease-in-out 0s 1 normal forwards;
 	}
 	.navigation-menu li {
 		text-align: center;
 		margin: 0;
 	}
 	.navigation-menu li a {
-		color: black;
+		color: white;
 		width: 100%;
 		padding: 0.4rem 0;
+		font-family: 'PT Serif Caption', serif;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 600;
 	}
 	.navigation-menu li:hover {
 		background-color: #eee;
@@ -118,9 +119,23 @@
 	.navigation-menu.expanded ul {
 		display: block;
 		height: fit-content;
-		width: 6rem;
+		width: 7rem;
 		position: relative;
 		box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
 		border-radius: 5px;
+	}
+}
+
+@keyframes navBarAnim {
+	0% {
+		opacity: 0;
+		transform-origin: top;
+		transform: rotateX(-100deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform-origin: top;
+		transform: rotateX(0);
 	}
 }

@@ -103,7 +103,6 @@ export default function Convertor(props) {
 				const newData = dataKeys.map((eachId) => {
 					return res.data.rates[eachId];
 				});
-				console.log(newData[0]);
 				setFormVals.setExchangeRate(newData[0]);
 			}
 			getData();
@@ -201,6 +200,7 @@ export default function Convertor(props) {
 					<button className="continue" onClick={handleContinue}>
 						Get Started
 					</button>
+					<a href="/instructions">Need Instructions?</a>
 				</div>
 			</div>
 		</div>

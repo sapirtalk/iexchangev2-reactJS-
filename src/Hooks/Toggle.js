@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import getStorageValue from '../functions/getStorageValue';
+import { useState } from 'react';
 
 /**
  * Custom hook for a boolean state

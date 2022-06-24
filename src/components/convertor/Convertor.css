@@ -79,7 +79,7 @@
 }
 
 .rateContainer-output {
-	margin-top: 0%;
+	margin-top: 22px;
 	position: relative;
 	font-weight: 500;
 	font-size: larger;
@@ -91,16 +91,18 @@
 .continue {
 	box-shadow: inset 0px 0px 6px 1px #002060;
 	background: linear-gradient(to bottom, #002060 5%, #195bb6 100%);
-	border-radius: 6px;
+	border-radius: 20px;
 	border: 2px solid #002060;
 	display: inline-block;
 	cursor: pointer;
 	color: white;
-	font-family: Arial;
 	font-size: 15px;
-	font-weight: bold;
+	font-weight: 600;
 	padding: 7px 24px;
-	text-decoration: none;
+	letter-spacing: 1px;
+	width: 90%;
+	font-family: 'PT Serif Caption', serif;
+	font-family: 'Roboto', sans-serif;
 }
 .continue:hover {
 	background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
@@ -113,11 +115,20 @@
 
 .toFormBtn {
 	display: flex;
-	justify-content: flex-end;
-	padding-right: 10px;
+	flex-direction: column;
+	justify-content: center;
+	justify-items: center;
+	align-content: center;
+	align-items: center;
+	margin-top: 10px;
 }
 
 .Convertor-heading {
 	font-weight: 700;
 	margin-left: 13px;
+}
+
+.toFormBtn a {
+	margin-top: 30px;
+	text-decoration: underline;
 }

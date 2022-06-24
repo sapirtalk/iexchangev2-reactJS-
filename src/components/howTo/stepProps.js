@@ -2,10 +2,10 @@ import one from '../../assets/one.png';
 import two from '../../assets/two.png';
 import three from '../../assets/three.png';
 import four from '../../assets/four.png';
-import exchange from '../../assets/currency-exchange.png';
-import form from '../../assets/booking.png';
-import email from '../../assets/email.png';
-import trasfer from '../../assets/bank-transfer.png';
+import exchange from '../../assets/money-exchange.png';
+import email from '../../assets/getmailed.png';
+import transfer from '../../assets/refinance.png';
+import wait from '../../assets/hour.png';
 
 const stepProps = [
 	{
@@ -14,31 +14,33 @@ const stepProps = [
 		altNum: 'one',
 		alt: 'exchange',
 		heading: 'Convert',
-		body: 'instructions'
+		body: 'Use the convertor to decide how much would you like to exchange with current market representative rate'
 	},
 	{
 		numImg: two,
-		image: form,
-		altNum: 'two',
-		alt: 'form',
-		heading: 'Fill details',
-		body: 'instructions'
-	},
-	{
-		numImg: three,
 		image: email,
 		altNum: 'three',
 		alt: 'email',
 		heading: 'Get emailed',
-		body: 'instructions'
+		body: 'After filling the form you will recieve an email with a transaction code to be used in the transfer'
 	},
 	{
-		numImg: four,
-		image: trasfer,
+		numImg: three,
+		image: transfer,
 		altNum: 'four',
 		alt: 'trasfer',
 		heading: 'Make a transfer',
-		body: 'instructions'
+		body:
+			'Make a bank transfer with the given bank details and paste the transaction code in the transfer description'
+	},
+	{
+		numImg: four,
+		image: wait,
+		altNum: 'five',
+		alt: 'wait',
+		heading: 'Done!',
+		body:
+			'Thats it you are done! , all that is left is to wait for the transaction to come through. it may take up to 24 hours depends on the bank'
 	}
 ];
 

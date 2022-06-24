@@ -1,18 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextField, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import CountryDrop from './countryDrop/CountryDrop';
 import './UserDetails.css';
 import PrefixSelect from './mobilePrefix/PrefixSelect';
 import ReCAPTCHA from 'react-google-recaptcha';
-import camera from '../../assets/camera.png';
+import camera from '../../assets/add-photo.png';
 import check from '../../assets/check.png';
 import id from '../../assets/id.png';
 import passport from '../../assets/passport.png';
 import selfie from '../../assets/selfie.png';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 export default function UserDetails(props) {
+	const [ openTerms, setOpenTerms ] = useState(false);
+	const [ scroll, setScroll ] = useState('paper');
 	const getVals = props.getVals;
 	const setVals = props.setVals;
+
+	const handleClickTerms = (scrollType) => () => {
+		setOpenTerms(true);
+		setScroll(scrollType);
+	};
+
+	const handleCloseTerms = () => {
+		setOpenTerms(false);
+	};
+
+	const descriptionElementRef = React.useRef(null);
+	useEffect(
+		() => {
+			if (openTerms) {
+				const { current: descriptionElement } = descriptionElementRef;
+				if (descriptionElement !== null) {
+					descriptionElement.focus();
+				}
+			}
+		},
+		[ openTerms ]
+	);
 
 	const recieveBankDetails = (value) => {
 		var message = '';
@@ -104,7 +134,7 @@ export default function UserDetails(props) {
 						value={getVals.accCountry}
 						label="Where is your bank?:"
 						handleChange={handleAccCountryChange}
-						helperText="so you can use your local bank with no extra fee"
+						helperText="We need to know in which country is your bank account"
 					/>
 					<CountryDrop
 						value={getVals.toCountry}
@@ -128,7 +158,6 @@ export default function UserDetails(props) {
 					</div>
 					<p className="description-selfie">Please take a photo of your ID or Passport</p>
 				</div>
-
 				<div className="file-uploader">
 					<p>*Face Photo:</p>
 					<div className="file-uploader-items">
@@ -142,7 +171,7 @@ export default function UserDetails(props) {
 						</div>
 					</div>
 					<p className="description-selfie">
-						We need to verify that it is really you and no one is taking advantage of you *Please make sure
+						We need to verify that it is really you and no one is taking advantage of you. Please make sure
 						your face is visible and the picture is taken at a well lit area
 					</p>
 				</div>
@@ -177,11 +206,40 @@ export default function UserDetails(props) {
 						/>
 					</FormGroup>
 				</div>
+				<div>
+					<Button style={{ textDecoration: 'underline' }} onClick={handleClickTerms('paper')}>
+						Terms&Conditions
+					</Button>
+					<Dialog
+						open={openTerms}
+						onClose={handleCloseTerms}
+						scroll={scroll}
+						aria-labelledby="scroll-dialog-title"
+						aria-describedby="scroll-dialog-description"
+					>
+						<DialogTitle id="scroll-dialog-title">Terms&Condtions</DialogTitle>
+						<DialogContent style={{ height: '300px' }} dividers={scroll === 'paper'}>
+							<DialogContentText id="scroll-dialog-description" ref={descriptionElementRef} tabIndex={-1}>
+								{[ ...new Array(50) ]
+									.map(
+										() => `Cras mattis consectetur purus sit amet fermentum.
+												Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+												Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+												Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
+									)
+									.join('\n')}
+							</DialogContentText>
+						</DialogContent>
+						<DialogActions>
+							<Button onClick={handleCloseTerms}>Close</Button>
+						</DialogActions>
+					</Dialog>
+				</div>
 				<div className="approval-checkBox">
 					<FormGroup>
 						<FormControlLabel
 							control={<Checkbox onChange={props.termsFlag} value={getVals.termsFlag} />}
-							label="i have read the terms & conditions and agree."
+							label="i have read the terms & conditions and I agree."
 						/>
 					</FormGroup>
 				</div>
@@ -195,12 +253,16 @@ export default function UserDetails(props) {
 				badge="bottomright"
 			/>
 			<div className="buttons">
-				<button className="buttons-back" onClick={props.handleBack}>
-					Back
-				</button>
-				<button className="buttons-submit" onClick={props.submit}>
-					Submit
-				</button>
+				<div className="buttons-backContainer">
+					<button className="buttons-back" onClick={props.handleBack}>
+						Back
+					</button>
+				</div>
+				<div className="buttons-submitContainer">
+					<button className="buttons-submit" onClick={props.submit}>
+						Submit
+					</button>
+				</div>
 			</div>
 		</div>
 	);

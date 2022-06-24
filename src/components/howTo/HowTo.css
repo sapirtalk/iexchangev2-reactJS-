@@ -8,13 +8,15 @@
 .howTo-heading p {
 	font-weight: 700;
 	font-size: 25px;
-	margin-left: 30px;
 	width: 70%;
 	margin-top: 0%;
 	margin-bottom: 0;
 	margin-top: 10px;
+	text-align: center;
 }
 
 .howTo-heading {
-	margin-top: 20px;
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
 }

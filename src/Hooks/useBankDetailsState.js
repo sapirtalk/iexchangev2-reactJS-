@@ -21,7 +21,7 @@ const useBankDetailsState = (key = 'USA', defaultValue = defaultMessage) => {
 			// storing input name
 			localStorage.setItem(key, value);
 		},
-		[ key ]
+		[ key, value ]
 	);
 
 	return [ value, handleChange ];
