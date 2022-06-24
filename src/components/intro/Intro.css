@@ -30,7 +30,7 @@
 .intro-btn {
 	box-shadow: inset 0px 0px 6px 1px #002060;
 	background: linear-gradient(to bottom, #002060 5%, #195bb6 100%);
-	border-radius: 6px;
+	border-radius: 20px;
 	border: 2px solid #002060;
 	display: inline-block;
 	cursor: pointer;
