@@ -50,7 +50,7 @@ function Navbar(props) {
 				</a>
 			</div>
 			<button onClick={handleMenuClick} className="hamburger">
-				<MenuIcon ref={btnRef} />
+				<MenuIcon style={{ fontSize: 'inherit' }} ref={btnRef} />
 			</button>
 			<div className={isNavExpanded ? 'navigation-menu expanded' : 'navigation-menu'}>
 				<ul>
