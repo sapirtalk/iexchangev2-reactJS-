@@ -16,15 +16,14 @@ import { useState } from 'react';
 function Navbar(props) {
 	const [ isNavExpanded, setIsNavExpanded ] = useState(false);
 	const btnRef = useRef();
+	const btnContainerRef = useRef();
 	useEffect(() => {
 		const closeDropdown = (e) => {
-			if (
-				e.path[1] !== btnRef.current &&
-				e.path[0] !== btnRef.current &&
-				e.path[2] !== btnRef.current &&
-				e.path[3] !== btnRef.current
-			)
-				setIsNavExpanded(false);
+			console.log(e.path);
+			console.log(btnContainerRef.current);
+			if (e.path[1] === btnRef.current || e.path[1] === btnContainerRef.current) return;
+			else if (e.path[0] === btnRef.current || e.path[0] === btnContainerRef.current) return;
+			else setIsNavExpanded(false);
 		};
 
 		document.body.addEventListener('click', closeDropdown);
@@ -49,7 +48,7 @@ function Navbar(props) {
 					<img className="headerLogo" src={logo_new} alt="header_logo" />
 				</a>
 			</div>
-			<button onClick={handleMenuClick} className="hamburger">
+			<button ref={btnContainerRef} onClick={handleMenuClick} className="hamburger">
 				<MenuIcon style={{ fontSize: 'inherit' }} ref={btnRef} />
 			</button>
 			<div className={isNavExpanded ? 'navigation-menu expanded' : 'navigation-menu'}>
