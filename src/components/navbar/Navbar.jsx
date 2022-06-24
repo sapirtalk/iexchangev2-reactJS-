@@ -18,7 +18,12 @@ function Navbar(props) {
 	const btnRef = useRef();
 	useEffect(() => {
 		const closeDropdown = (e) => {
-			if (e.path[1] !== btnRef.current && e.path[0] !== btnRef.current && e.path[2] !== btnRef.current)
+			if (
+				e.path[1] !== btnRef.current &&
+				e.path[0] !== btnRef.current &&
+				e.path[2] !== btnRef.current &&
+				e.path[3] !== btnRef.current
+			)
 				setIsNavExpanded(false);
 		};
 
