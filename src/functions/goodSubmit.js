@@ -17,6 +17,7 @@ const goodSubmit = (data) => {
 	else if (data.selfie === null) alert('Please provide a self photo');
 	else if (!data.amountsFlag) alert('Please agree to the amounts and exchange rates');
 	else if (!data.termsFlag) alert('Please agree to the terms and conditions');
+	else if (!data.recapcha) alert('Please verify that you are a human');
 	else flag = true;
 
 	return flag;

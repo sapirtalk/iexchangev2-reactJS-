@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useStoragetState from '../../Hooks/useStorageState';
 import './UserForm.css';
 import Convertor from '../convertor/Convertor.js';
@@ -29,7 +29,7 @@ function UserForm(props) {
 	const [ idPic, setIdPic ] = HandleFileInput(undefined);
 	const [ selfie, setSelfie ] = HandleFileInput(undefined);
 	const [ mobile, setMobile ] = UseInputState('mobile', undefined);
-	const [ recapcha, setRecapcha ] = Toggle(false);
+	const [ recapcha, setRecapcha ] = useState(false);
 	const [ amountsFlag, setAmountsFlag ] = Toggle(false);
 	const [ termsFlag, setTermsFlag ] = Toggle(false);
 	const [ bankDetails, setBankDetails ] = useBankDetailsState();
@@ -119,7 +119,6 @@ function UserForm(props) {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		recaptchaRef.current.execute();
 		console.log(detailsGetVals);
 		const params = {
 			firstName: firstName,
@@ -158,7 +157,6 @@ function UserForm(props) {
 						getVals={detailsGetVals}
 						setVals={detailsSetVals}
 						recapchaFlag={setRecapcha}
-						recaptchaRef={recaptchaRef}
 						amountsFlag={setAmountsFlag}
 						termsFlag={setTermsFlag}
 						submit={submitHandler}

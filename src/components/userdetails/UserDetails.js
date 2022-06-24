@@ -3,7 +3,7 @@ import { TextField, FormGroup, FormControlLabel, Checkbox } from '@mui/material'
 import CountryDrop from './countryDrop/CountryDrop';
 import './UserDetails.css';
 import PrefixSelect from './mobilePrefix/PrefixSelect';
-import ReCAPTCHA from 'react-google-recaptcha';
+import ReCAPTCHA from 'react-recaptcha';
 import camera from '../../assets/add-photo.png';
 import check from '../../assets/check.png';
 import id from '../../assets/id.png';
@@ -19,6 +19,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 export default function UserDetails(props) {
 	const [ openTerms, setOpenTerms ] = useState(false);
 	const [ scroll, setScroll ] = useState('paper');
+	// const [ isVerified, setIsVerified ] = useState('false');
 	const getVals = props.getVals;
 	const setVals = props.setVals;
 
@@ -29,6 +30,10 @@ export default function UserDetails(props) {
 
 	const handleCloseTerms = () => {
 		setOpenTerms(false);
+	};
+
+	const handleReCapcha = (response) => {
+		if (response) props.recapchaFlag(true);
 	};
 
 	const descriptionElementRef = React.useRef(null);
@@ -114,6 +119,7 @@ export default function UserDetails(props) {
 						size="small"
 						sx={{ width: 250 }}
 						value={getVals.email}
+						placeholder="email@company.com"
 					/>
 				</div>
 				<div className="mobile">
@@ -244,14 +250,16 @@ export default function UserDetails(props) {
 					</FormGroup>
 				</div>
 			</div>
-			<ReCAPTCHA
-				theme="dark"
-				onChange={props.recapchaFlag}
-				sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-				ref={props.recaptchaRef}
-				size="invisible"
-				badge="bottomright"
-			/>
+			<div className="userDetails-recapcha">
+				<ReCAPTCHA
+					render="explicit"
+					sitekey={process.env.REACT_APP_RECAPCHA_SITE_KEY}
+					onloadCallback={() => {
+						console.log('Recapcha loaded');
+					}}
+					verifyCallback={handleReCapcha}
+				/>
+			</div>
 			<div className="buttons">
 				<div className="buttons-backContainer">
 					<button className="buttons-back" onClick={props.handleBack}>
