@@ -6,6 +6,7 @@ import Toggle from '../../Hooks/Toggle';
 import axios from 'axios';
 import { findPrefix } from './Currencies';
 import { useGAEventsTracker } from '../../functions/useGAEventsTracker';
+import ReactGA from 'react-ga';
 
 /**
  * Component for the convertor.
@@ -70,7 +71,8 @@ export default function Convertor(props) {
 		if (errorAmount) setErrorAmount();
 
 		props.continue();
-		GAEventsTracker('button_pressed', 'get started');
+		// GAEventsTracker('button_pressed', 'get started');
+		ReactGA.event({ category: 'buttons', action: 'button_pressed', label: 'get started' });
 	};
 	/**
 	 * handeling the change of input amount, calculating the according outcome and changing its value
