@@ -6,6 +6,7 @@ import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import useStorageState from './Hooks/useStorageState';
 import Instructions from './pages/Instructions';
+import NotFound from './pages/NotFound';
 
 ReactGA.initialize(process.env.REACT_APP_GOOGLE_TRACKING_ID);
 
@@ -19,10 +20,12 @@ function App() {
 	return (
 		<div>
 			<Navbar setPageMove={setPageMove} />
+
 			<Routes>
-				<Route exact path="/home" element={<Home setPageMove={setPageMove} pageMove={pageMove} />} />
-				<Route exact path="/" element={<Navigate to="/home" />} />
-				<Route exact path="/instructions" element={<Instructions />} />
+				<Route path="/home" element={<Home setPageMove={setPageMove} pageMove={pageMove} />} />
+				<Route path="/" element={<Navigate to="/home" />} />
+				<Route path="/instructions" element={<Instructions />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
 		</div>

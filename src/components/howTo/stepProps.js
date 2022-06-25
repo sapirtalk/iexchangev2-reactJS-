@@ -14,7 +14,7 @@ const stepProps = [
 		altNum: 'one',
 		alt: 'exchange',
 		heading: 'Convert',
-		body: 'Use the convertor to decide how much would you like to exchange with current market representative rate'
+		body: 'Use the convertor to decide how much would you like to exchange with current mid-market rate'
 	},
 	{
 		numImg: two,

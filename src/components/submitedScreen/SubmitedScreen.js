@@ -25,6 +25,9 @@ export default function SubmitedScreen(props) {
 
 	return (
 		<div className="submited">
+			<div className="submited-heading">
+				<h1>You are almost done! ,Only one more step to go</h1>
+			</div>
 			<div className="submited-top">
 				<h3 className="details">
 					Thank you for using our services <span style={{ color: 'blue' }}>{getVals.firstName}</span>! we sent
