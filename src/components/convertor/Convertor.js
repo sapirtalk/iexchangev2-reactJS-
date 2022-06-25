@@ -72,8 +72,8 @@ export default function Convertor(props) {
 
 		props.continue();
 		// GAEventsTracker('button_pressed', 'get started');
-		ReactGA.event({ category: 'buttons', action: 'button_pressed', label: 'get started' });
-		console.log({ category: 'buttons', action: 'button_pressed', label: 'get started' });
+		ReactGA.event({ category: 'buttons_events', action: 'button_pressed', label: 'get started' });
+		console.log({ category: 'buttons_events', action: 'button_pressed', label: 'get started' });
 	};
 	/**
 	 * handeling the change of input amount, calculating the according outcome and changing its value
