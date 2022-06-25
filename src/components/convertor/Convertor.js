@@ -70,7 +70,7 @@ export default function Convertor(props) {
 		if (errorAmount) setErrorAmount();
 
 		props.continue();
-		GAEventsTracker('Button pressed', 'Get started');
+		GAEventsTracker('button_pressed', 'get started');
 	};
 	/**
 	 * handeling the change of input amount, calculating the according outcome and changing its value
