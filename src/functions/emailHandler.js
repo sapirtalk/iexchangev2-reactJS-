@@ -3,15 +3,13 @@
  * @param   {Array} params the data from 'UserForm' component 
  */
 
-const sendEmail = async (params) => {
-	fetch(process.env.REACT_APP_EMAIL_API, {
+const sendEmail = (params) => {
+	return fetch(process.env.REACT_APP_EMAIL_API, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(params)
-	}).then(() => {
-		console.log('email sent!');
 	});
 };
 

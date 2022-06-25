@@ -33,7 +33,7 @@ export default function UserDetails(props) {
 	};
 
 	const handleReCapcha = (response) => {
-		if (response) props.recapchaFlag(true);
+		if (response) props.recapchaToken(response);
 	};
 
 	const descriptionElementRef = React.useRef(null);

@@ -28,15 +28,14 @@ function UserForm(props) {
 	const [ toCountry, setToCountry ] = useStoragetState('toCountry', 'Israel');
 	const [ idPic, setIdPic ] = HandleFileInput(undefined);
 	const [ selfie, setSelfie ] = HandleFileInput(undefined);
-	const [ mobile, setMobile ] = UseInputState('mobile', undefined);
-	const [ recapcha, setRecapcha ] = useState(false);
+	const [ mobile, setMobile ] = UseInputState('mobile', '');
+	const [ recapchaToken, setRecapchaToken ] = useState(false);
 	const [ amountsFlag, setAmountsFlag ] = Toggle(false);
 	const [ termsFlag, setTermsFlag ] = Toggle(false);
 	const [ bankDetails, setBankDetails ] = useBankDetailsState();
 	const [ transCode, setTransCode ] = useStoragetState('transCode', '');
 	const [ mobilePrefix, setMobilePrefix ] = useStoragetState('mobilePrefix', '+972');
 	const issueDate = new Date();
-	const recaptchaRef = React.createRef();
 
 	const convertSetVals = {
 		setAmount,
@@ -74,7 +73,7 @@ function UserForm(props) {
 		exchangeRate,
 		mobile,
 		issueDate,
-		recapcha,
+		recapchaToken,
 		amountsFlag,
 		termsFlag,
 		transCode,
@@ -117,21 +116,25 @@ function UserForm(props) {
 		}
 	};
 
-	const submitHandler = (e) => {
+	const submitHandler = async (e) => {
 		e.preventDefault();
 		console.log(detailsGetVals);
 		const params = {
-			firstName: firstName,
-			email: email,
-			transCode: transCode
+			firstName,
+			email,
+			transCode,
+			recapchaToken
 		};
 
 		if (goodSubmit(detailsGetVals)) {
-			sendEmail(params);
-
-			props.setPageMove('submited');
-			handleSubmit(detailsGetVals);
-			localStorage.clear();
+			try {
+				await sendEmail(params);
+				props.setPageMove('submited');
+				handleSubmit(detailsGetVals);
+				localStorage.clear();
+			} catch (error) {
+				console.log(error);
+			}
 		}
 	};
 
@@ -156,7 +159,7 @@ function UserForm(props) {
 						handleBack={handlePageMove}
 						getVals={detailsGetVals}
 						setVals={detailsSetVals}
-						recapchaFlag={setRecapcha}
+						recapchaToken={setRecapchaToken}
 						amountsFlag={setAmountsFlag}
 						termsFlag={setTermsFlag}
 						submit={submitHandler}
