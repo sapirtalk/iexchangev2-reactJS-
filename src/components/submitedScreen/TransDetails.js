@@ -12,23 +12,39 @@ export const TransDetails = (props) => {
 			<h3> Transaction Details:</h3>
 			<div className="transDetails-body">
 				<p>
-					Amount to exchange : {getVals.prefixFrom}
-					{getVals.amount}
+					Amount to exchange :{' '}
+					<span>
+						{getVals.prefixFrom}
+						{getVals.amount}
+					</span>
 				</p>
 				<p>
-					Current market exchange rate: {getVals.PrefixTo}1 = {getVals.prefixFrom}
-					{getVals.exchangeRate}
+					Current market exchange rate: <span>{getVals.PrefixTo}1</span> ={' '}
+					<span>
+						{getVals.prefixFrom}
+						{getVals.exchangeRate}
+					</span>
 				</p>
 				<p>
-					You will recieve in {getVals.to} : {getVals.PrefixTo}
+					You will recieve in <span>{getVals.to}</span> : <span>{getVals.PrefixTo}</span>
 					{getVals.outcome}
 				</p>
-				<h3>Our bank details in {getVals.accCountry}:</h3>
-				<p>AccountNo: {getVals.bankDetails.AccountNo}</p>
-				<p>BranchNo: {getVals.bankDetails.BranchNo}</p>
-				<p>BankNo: {getVals.bankDetails.BankNo}</p>
-				<p>Those details are valid until : {nextDay} </p>
-				<p>After the date mentiond those details wont be valid due to rate change in the market</p>
+				<h3>
+					Our bank details in <span>{getVals.accCountry}</span>:
+				</h3>
+				<p>
+					AccountNo: <span>{getVals.bankDetails.AccountNo}</span>
+				</p>
+				<p>
+					BranchNo: <span>{getVals.bankDetails.BranchNo}</span>
+				</p>
+				<p>
+					BankNo: <span>{getVals.bankDetails.BankNo}</span>
+				</p>
+				<p>
+					Those details are valid until : <span>{nextDay}</span>{' '}
+				</p>
+				<p>After the date mentiond these details wont be valid due to rate change in the market</p>
 			</div>
 		</div>
 	);
