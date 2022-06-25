@@ -29,7 +29,7 @@ export default function Convertor(props) {
 	const [ errorAmount, setErrorAmount ] = Toggle(false);
 	const [ errorCurr, setErrorCurr ] = Toggle(false);
 	const [ errorAmountRoof, setErrorAmountRoof ] = Toggle(false);
-	const GAEventsTracker = useGAEventsTracker('Buttons');
+	// const GAEventsTracker = useGAEventsTracker('Buttons');
 	/**
 	 * handeling the switch of currency all around Convertor component.
 	 * switching currency prefixes, exchange rate and calculated outcome, also reruns the getData for API
@@ -73,6 +73,7 @@ export default function Convertor(props) {
 		props.continue();
 		// GAEventsTracker('button_pressed', 'get started');
 		ReactGA.event({ category: 'buttons', action: 'button_pressed', label: 'get started' });
+		console.log({ category: 'buttons', action: 'button_pressed', label: 'get started' });
 	};
 	/**
 	 * handeling the change of input amount, calculating the according outcome and changing its value
