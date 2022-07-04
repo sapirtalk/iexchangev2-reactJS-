@@ -1,4 +1,4 @@
-import storage from './firebaseConfig';
+import { storage } from './firebaseConfig';
 import { ref, uploadBytesResumable } from 'firebase/storage';
 
 /**

@@ -5,8 +5,8 @@ import './Convertor.css';
 import Toggle from '../../Hooks/Toggle';
 import axios from 'axios';
 import { findPrefix } from './Currencies';
-import { useGAEventsTracker } from '../../functions/useGAEventsTracker';
-import ReactGA from 'react-ga';
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../../firebaseConfig';
 
 /**
  * Component for the convertor.
@@ -29,7 +29,6 @@ export default function Convertor(props) {
 	const [ errorAmount, setErrorAmount ] = Toggle(false);
 	const [ errorCurr, setErrorCurr ] = Toggle(false);
 	const [ errorAmountRoof, setErrorAmountRoof ] = Toggle(false);
-	// const GAEventsTracker = useGAEventsTracker('Buttons');
 	/**
 	 * handeling the switch of currency all around Convertor component.
 	 * switching currency prefixes, exchange rate and calculated outcome, also reruns the getData for API
@@ -71,9 +70,9 @@ export default function Convertor(props) {
 		if (errorAmount) setErrorAmount();
 
 		props.continue();
-		// GAEventsTracker('button_pressed', 'get started');
-		ReactGA.event({ category: 'buttons_events', action: 'button_pressed', label: 'get started' });
-		console.log({ category: 'buttons_events', action: 'button_pressed', label: 'get started' });
+
+		logEvent(analytics, 'Button_pressed', { name: 'Get_Started' });
+		console.log('analytics sent');
 	};
 	/**
 	 * handeling the change of input amount, calculating the according outcome and changing its value

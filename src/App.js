@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
 import Home from './pages/Home';
-import ReactGA from 'react-ga';
+
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import useStorageState from './Hooks/useStorageState';
 import Instructions from './pages/Instructions';
 import NotFound from './pages/NotFound';
-
-// ReactGA.initialize(process.env.REACT_APP_GOOGLE_TRACKING_ID);
+import { analytics } from './firebaseConfig';
+import { setCurrentScreen, logEvent } from 'firebase/analytics';
 
 function App() {
 	const [ pageMove, setPageMove ] = useStorageState('pageMove', 'convertor');
 
 	useEffect(() => {
-		ReactGA.pageview(window.location.pathname + window.location.search);
+		setCurrentScreen(analytics, window.location.pathname + window.location.search);
+		logEvent(analytics, 'page-view', { page_path: window.location.pathname + window.location.search });
 	}, []);
 
 	return (

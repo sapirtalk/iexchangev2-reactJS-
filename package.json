@@ -1,6 +1,6 @@
 {
 	"name": "iexchangev2",
-	"homepage": "http://iexchange-online.com",
+	"homepage": "http://www.iexchange-online.com",
 	"version": "0.1.0",
 	"private": false,
 	"dependencies": {
@@ -35,22 +35,11 @@
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
-		"extends": [
-			"react-app",
-			"react-app/jest"
-		]
+		"extends": [ "react-app", "react-app/jest" ]
 	},
 	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
+		"production": [ ">0.2%", "not dead", "not op_mini all" ],
+		"development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
 	},
 	"devDependencies": {
 		"assert": "^2.0.0",

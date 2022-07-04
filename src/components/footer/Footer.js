@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './footer.css';
-import footerLogo from '../../assets/Picture1.png';
+import footerLogo from '../../assets/iexchange_logo.png';
 import Alert from '@mui/material/Alert';
 
 /**

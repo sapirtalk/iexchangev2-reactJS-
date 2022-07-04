@@ -8,6 +8,7 @@ import TrustBullet from '../bullets/TrustBullet';
 import IntroChallenges from './introComponents/IntroChallenges';
 
 import './Intro.css';
+import { Faq } from './introComponents/Faq';
 
 const Intro = () => {
 	const scrollToTop = () => {
@@ -47,6 +48,10 @@ const Intro = () => {
 				<div className="intro-challenges">
 					<IntroChallenges />
 				</div>
+				<div>
+					<Faq />
+				</div>
+
 				<button className="intro-btn" onClick={scrollToTop}>
 					Try now!
 				</button>
