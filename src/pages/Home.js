@@ -1,7 +1,6 @@
 import React from 'react';
 import UserForm from '../components/userForm/UserForm';
 import './Home.css';
-
 import ReactGA from 'react-ga';
 import Intro from '../components/intro/Intro';
 import Header from '../components/header/Header';
